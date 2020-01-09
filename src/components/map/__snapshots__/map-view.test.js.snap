@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should successfully render the map component 1`] = `
+<div
+  id="RTM-Map-Container"
+>
+  <div
+    id="RTM-Map"
+  >
+    <div
+      id="progressbar"
+    >
+      <div
+        class="mdc-linear-progress "
+        role="progressbar"
+      >
+        <div
+          class="mdc-linear-progress__buffering-dots"
+        />
+        <div
+          class="mdc-linear-progress__buffer"
+        />
+        <div
+          class="mdc-linear-progress__bar mdc-linear-progress__primary-bar"
+        >
+          <span
+            class="mdc-linear-progress__bar-inner"
+          />
+        </div>
+        <div
+          class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"
+        >
+          <span
+            class="mdc-linear-progress__bar-inner"
+          />
+        </div>
+      </div>
+    </div>
+    <button
+      class="collapsible"
+      id="collapse-button"
+      title="Open Configuration Panel"
+      type="button"
+    />
+    <div
+      class="mdc-snackbar mdc-snackbar--align-start"
+    >
+      <div
+        class="mdc-snackbar__surface"
+      >
+        <div
+          aria-live="polite"
+          class="mdc-snackbar__label"
+          role="status"
+        />
+        <div
+          class="mdc-snackbar__actions"
+        >
+          <button
+            class="mdc-button mdc-snackbar__action"
+            type="button"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

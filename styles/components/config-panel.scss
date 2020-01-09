@@ -1,0 +1,320 @@
+#RTM-config-view {
+	h1 {
+		font-family: inherit;
+		font-size: 24px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 700;
+		line-height: 26.4px;
+	}
+
+	h3 {
+		font-family: inherit;
+		font-size: 14px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 700;
+		line-height: 15.4px;
+	}
+
+	p {
+		font-family: inherit;
+		font-size: 14px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 400;
+		line-height: 20px;
+	}
+
+	blockquote {
+		font-family: inherit;
+		font-size: 21px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 400;
+		line-height: 30px;
+	}
+
+	pre {
+		font-family: inherit;
+		font-size: 13px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 400;
+		line-height: 18.5714px;
+	}
+
+	button {
+		font-family: inherit;
+		font-size: 14px;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 400;
+		line-height: 20px;
+	}
+
+	#RTM-config-container {
+		width: 25%;
+		height: calc(100% - 60px);
+		margin: 0;
+		overflow-y: auto;
+		border-style: solid;
+		border: 0;
+		border-color: grey;
+		background: rgba(255, 255, 255, 0.8);
+		position: absolute;
+		right: 0px;
+		z-index: 1000;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+	}
+
+	.RTM-Tab {
+		background: rgba(255, 255, 255, 0);
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		width: 33%;
+	}
+
+	.RTM-TabSelected {
+		border-bottom: 2px #ddd solid;
+		visibility: visible;
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1);
+	}
+
+	.RTM-TabNotSelected {
+		visibility: visible;
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1);
+	}
+
+	.RTM-Tab:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		bottom: -2px;
+		left: 0;
+		background-color: lightgrey;
+		visibility: hidden;
+		-webkit-transform: scaleX(0);
+		transform: scaleX(0);
+		-webkit-transition: all 0.3s ease-in-out 0s;
+		transition: all 0.3s ease-in-out 0s;
+	}
+
+	.RTM-Tab:hover:before {
+		visibility: visible;
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1);
+	}
+
+	.RTM-SearchBar {
+		position: relative;
+		width: 100%;
+		height: 34px;
+		padding-left: 35px;
+		margin-top: 0.75em;
+		background-repeat: no-repeat;
+		background-color: whitesmoke;
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		-moz-border-radius: 1px;
+		border-radius: 1px;
+		background: url('./../../img/search-icon.svg') no-repeat;
+	}
+
+	.RTM-config-info {
+		position: absolute;
+		top: 2.5%;
+		margin-left: 2%;
+		margin-top: 40px;
+		height: 70%;
+		width: 95%;
+	}
+}
+
+// styles for configuration panel lists & icons
+.RTM-iconSquare {
+	width: 15px;
+	height: 15px;
+	margin-top: 3px;
+	margin-left: 5px;
+	margin-right: 5px;
+	display: inline-block;
+	vertical-align: text-bottom;
+	float: left;
+}
+
+.mdc-list-item__graphic.exception {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	left: -5px;
+	top: 11px;
+	border-radius: 15px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.mdc-list-item__graphic.filterIcon {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	right: 25px;
+	top: 11px;
+	z-index: 1000;
+}
+
+
+.mdc-list-item__graphic.vehicle {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+  left: 0;
+  top: 13px;
+	background: url('./../../img/directions_car-24px.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.mdc-list-item__graphic.group {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+  left: 0;
+  top: 13px;
+	background: url('./../../img/commute-24px.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 15px;
+}
+
+
+
+.mdc-select:not(.mdc-select--disabled).mdc-select--focused .mdc-floating-label {
+	color: black;
+}
+
+.mdc-list-item__meta {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	right: 0;
+	background: url('./../../img/clear-24px.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.mdc-list-item__graphic.status {
+	position: absolute;
+	height: 20px;
+  width: 20px;
+  left: 0;
+  top: 13px;
+	background: url('./../../img/developer_board-24px.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.config-Header {
+	border-bottom: 0.5px solid rgba(0, 0, 0, 0.6);
+	display: flex;
+	justify-content: space-between;
+	height: 3.6em;
+	width: 100%;
+	padding-top: 1.5em;
+}
+
+.deleteButton {
+	height: 20px;
+	width: 20px;
+	background-color: transparent;
+	background: url('./../../img/clear-24px.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	border: none;
+}
+
+.toggleButton {
+	height: 20px;
+	width: 20px;
+	background-color: transparent;
+	background: url('./../../img/remove_red_eye-24px.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	border: none;
+	margin: 0 10px;
+}
+
+.toggleButton.shown {
+	background: url('./../../img/remove_red_eye-24px.svg');
+}
+
+.toggleButton.notShown {
+	background: url('./../../img/block-24px.svg');
+}
+
+.mdc-list-item__text {
+	position: absolute;
+	left: 25px;
+	font-size: 1em;
+}
+
+
+#RTM-config-container {
+	max-width: 0;
+	overflow: hidden;
+}
+
+#vehicle-tab {
+	display: none;
+}
+
+#status-tab {
+	display: none;
+}
+
+* {
+	font-family: 'Roboto', sans-serif !important;
+	font-size: 14px;
+}
+
+
+/* Style the button that is used to open and close the collapsible config panel */
+.collapsible {
+	background: url('./../../img/arrow-back.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	color: #444;
+	cursor: pointer;
+	width: 10%;
+	border: none;
+	text-align: left;
+	position: absolute;
+	top: 50%;
+	right: 0%;
+	height: 50px;
+	width: 25px;
+	z-index: 1001;
+	padding: 1px;
+}
+
+
+.showConfig {
+  background-image: url("./../../img/remove_red_eye-24px.svg");
+}
+
+.hideConfig {
+  background-image: url("./../../img/block-24px.svg");
+}
+
+.openConfigPanel {
+  background-image: url("./../../img/arrow-back.svg");
+}
+
+.closeConfigPanel {
+  background-image: url("./../../img/arrow-forward.svg");
+}

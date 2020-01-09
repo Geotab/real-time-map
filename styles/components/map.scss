@@ -1,0 +1,76 @@
+#RTM-Map {
+  height: 100%;
+  width: 100%;
+  .RTM-popupGrouped {
+      color: gray;
+      border: 0;
+      margin: 0;
+      font-size: 0.8em;
+      border-top: 1px solid #00AEEF;
+ }
+  .RTM-BorderedTextBox {
+      margin: 0.5em 0;
+     //  border: 3px groove #00AEEF;
+     //  padding: 0 3px;
+ }
+  .RTM-BorderedTextBox span {
+      float: right;
+ }
+  .RTM-BorderedTextBox strong {
+      border-bottom: 1px groove #00AEEF;
+ }
+ 
+  .RTM-FocusMarkerButton {
+      border: 0;
+      background: url('../../img/noun_Add.svg');
+      background-repeat: no-repeat;
+      width: 24px;
+      height: 30px;
+      margin: -10px 0.3em 0 0;
+      transform: translate(0px, 10px);
+ }
+}
+
+.leaflet-control-scale {
+  bottom: -10px;
+}
+
+.leaflet-control-attribution {
+  display: none;
+}
+
+.leaflet-top {
+  top: 7px !important;
+}
+
+.leaflet-popup-content {
+  margin: 2px 10px !important;
+  line-height: 1.4 !important;
+}
+
+.popupRuleName{
+  margin: 0 !important;
+  // border:inset;
+}
+
+#real-time-map-container {
+  height: 100%;
+}
+#RTM-ViewContainer{
+  height: 100%;
+  width: 100%;
+}
+#RTM-Map-Container {
+  height: calc(100% - 60px);
+  width: 100%;
+}
+#checkmateContent{
+  margin: 0 !important;
+}
+
+.car-icon{
+  background: url('../../img/car.svg');
+  height: 18px !important;
+  width: 18px !important;
+  // opacity: 0.3;
+}

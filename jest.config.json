@@ -1,0 +1,28 @@
+{
+  "moduleNameMapper": { 
+    "^components(.*)$": "<rootDir>/src/components/$1", 
+    "^global(.*)$": "<rootDir>/src/components/global/$1",
+    "^constants(.*)$": "<rootDir>/src/constants/$1",
+    "^utils-(.*)$": "utils-$1",
+    "^utils(.*)$": "<rootDir>/src/utils/$1",
+    "^styles(.*)$": "<rootDir>/src/styles/$1",
+    "^scripts(.*)$": "<rootDir>/src/scripts/$1",
+    "^.+\\.(css|scss)$": "jest-transform-stub"
+  },
+  "transform": {
+    ".+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
+    "^.+\\.jsx?$": "babel-jest"
+},
+  "verbose": true,
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ],
+  "setupFiles": ["./tests/setup-enzyme-test.js"],
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx}",
+    "!**/node_modules/**",
+    "!**/dist/**",
+    "!**webpack.**",
+    "!**/coverage/**"
+  ]
+}

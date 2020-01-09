@@ -1,0 +1,12 @@
+export const LOGRECORD = "LogRecord";
+export const STATUSDATA = "StatusData";
+export const FAULTDATA = "FaultData";
+export const TRIP = "Trip";
+export const EXCEPTIONEVENT = "ExceptionEvent";
+export const DUTYSTATUSLOG = "DutyStatusLog";
+export const ANNOTATIONLOG = "AnnotationLog";
+export const DVIRLOG = "DVIRLog";
+export const SHIPMENTLOG = "ShipmentLog";
+export const TRAILERATTACHMENT = "TrailerAttachment";
+export const IOXADDON = "IoxAddOn";
+export const CUSTOMDATA = "CustomData";

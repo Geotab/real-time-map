@@ -1,0 +1,1 @@
+export { initExceptionPath } from "./exception-path";

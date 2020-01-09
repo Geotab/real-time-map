@@ -1,0 +1,1 @@
+export { processFeedData } from "./process-feed-data";

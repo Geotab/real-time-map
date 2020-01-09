@@ -1,0 +1,304 @@
+#progress-wrapper {
+  margin: auto;
+  position: absolute;
+  left: 3%;
+  top: 0%;
+  z-index: 1000;
+  display: inline;
+}
+
+.leaflet-control-scale-line:not(:first-child) {
+  margin-bottom: 7px;
+}
+
+#RTM-ControlBarContainer {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  height: 60px;
+  background-color:#fefefe;
+  z-index:1000;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+}
+
+#dateInputBox{
+  margin-left: 0 !important;
+}
+
+#RTM-TimeSlider {
+  left: 0px;
+  width: calc(100% - 12px);
+  margin: 0px;
+  z-index:0;
+}
+
+.pmd-range-slider.noUi-target {
+  height: 6px !important;
+}
+
+.noUi-handle-lower .noUi-tooltip {
+  width: 66px !important;
+  margin-left: -27px !important;
+}
+
+.noUi-handle-upper .noUi-tooltip {
+  width: 66px !important;
+  margin-left: -36px !important;
+}
+
+#RTM-ControlsContainer{
+  height:54px;
+  display: flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  flex-wrap: wrap ;
+}  
+
+#RTM-ControlsContainer>*{
+  height: 36px;
+  margin-bottom: 3px;
+}  
+
+.inputControls{
+  display:inline-flex ;
+  align-items: center;
+}
+
+.inputControls label{
+  margin:0 0.25em;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  margin-bottom: 0;
+  line-height: 20px;
+}
+
+#timeControls{
+  display: inline-flex ;
+  justify-content:space-evenly;
+  font-weight: 500;
+}  
+
+#RTMControlButton {
+  border: 0;
+  height:40px;
+  width:40px;
+  position: relative;
+  top:-7px;
+  z-index: 6;
+}
+
+#SpeedControlDropUp {
+  height: 37px;
+}
+
+.timeInputBox{
+  z-index: 666;
+  border: 0;
+  border-radius: 6%;
+  width:10em;
+  font-size: 1em;
+}
+
+#RTM-LiveButton {
+  border: 0;
+  height: 50px;
+  width: 66px;
+  background-color:rgb(255, 255, 255);
+  background-position: center;
+  color: black;
+  font-size: 120%;
+  position: relative;
+  bottom:6px;
+  margin-bottom: -6px;
+}
+
+#RTM-LiveDot {
+  height: 0.5em;
+  width: 0.5em;
+  background-color: crimson;
+  border-radius: 50%;
+  margin-right: 12%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+#Slider-Container {
+  background-color: #dedede;
+}
+
+
+.pmd-range-slider .noUi-tooltip {
+  transition: none !important;
+  }
+
+
+  .noUi-value.noUi-value-horizontal.noUi-value-large {
+    font-size: xx-small !important;;
+    display: block !important;;
+   }
+   
+  .noUi-handle.noUi-handle-lower {
+    width: 9px !important;
+    height: 18px !important;
+    left: -9px !important;
+    top: -6px !important;
+   
+    &:before {
+      background: royalblue !important;
+      border-radius: 0 !important;
+    }
+  }
+  
+  .noUi-handle.noUi-handle-upper {
+  
+    width: 0 !important;
+    height: 0 !important;
+    border-top: 9px solid transparent !important;
+    border-left: 12px solid #4285f4 !important;
+    border-bottom: 9px solid transparent !important;
+    top: -6px !important;
+    left: 0px !important;
+    border-radius: 0 !important;
+   
+  }
+  
+  .noUi-handle.noUi-handle-upper:active {
+    width: 9px !important;
+    height: 18px !important;
+    border: none !important;
+  }
+  
+  
+  .noUi-origin{
+    border-radius: 0 !important;
+  }
+
+  .mdc-button{
+    font-weight: inherit;
+    color: rgba(0, 0, 0, 0.8) !important;
+    padding: 0 0 1px 0 !important;
+    &:before {
+      background-color:  rgba(0, 0, 0, 0.6);
+    }
+    &:after {
+      background-color:  rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  // playback speed menu dropdown
+
+.mdc-select {
+  background-color: #fefefe !important;
+}
+
+.mdc-select__native-control {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0px !important;
+  border-bottom: 0px !important;
+  height: 35px;
+}
+
+.mdc-floating-label{
+  left: 0% !important; 
+  top: 41% !important;
+  font-size: 1em;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.inputControls.speed{
+  margin-left: 4.5em;
+}
+
+#speedLabel{
+  position: relative;
+  width: 4em;
+  bottom: 0.7em;
+  .mdc-floating-label {
+    left: 10% !important;
+  }
+}
+
+.disabledDropdown {
+  cursor: not-allowed;
+}
+
+// input boxes in the control bar and snackbar notifications
+
+.mdc-floating-label.map-time{
+  font-size: 1em !important; 
+  left: 68% !important;
+  height: 25px !important;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.mdc-floating-label.path-time{
+  font-size: 1em !important; 
+  left: 40% !important;
+  height: 25px !important;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.mdc-floating-label.date{
+  font-size: 1em !important; 
+  left: 20% !important;
+  height: 25px !important;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.mdc-snackbar {
+  z-index: 1000 !important;
+  top: 10px !important;
+  position: relative;
+}
+
+.mdc-snackbar__label {
+  font-size: 1.3em
+}
+
+#progressbar {
+  position: absolute;
+    width: 100%;
+    top: 0px;
+    z-index: 1000;
+}
+
+.mdc-button.mdc-snackbar__action {
+  font-size: 1.3em;
+  color: #4285f4 !important;
+}
+.mdc-linear-progress__bar-inner {
+  background-color: #4283ef;
+}
+.mdc-linear-progress__buffer{
+  background-color: transparent;
+}
+
+.mdc-linear-progress__buffering-dots{
+  background-color: transparent;
+}
+
+.timeInputBox :hover {
+  background-color:whitesmoke;
+}
+
+.RTM-playIcon {
+  background-image: url("./../../img/play.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.RTM-pauseIcon {
+  background-image: url("./../../img/pause-symbol.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}

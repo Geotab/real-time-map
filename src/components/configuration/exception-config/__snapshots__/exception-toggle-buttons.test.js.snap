@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should successfully render the component and match screenshot 1`] = `
+<div>
+  <button
+    class="toggleButton shown"
+    id="clearExceptions"
+    title="Toggle All Exceptions"
+  />
+  <button
+    class="deleteButton"
+    id="deleteExceptions"
+    title="Delete All Exceptions"
+  />
+</div>
+`;

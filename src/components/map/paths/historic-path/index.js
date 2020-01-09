@@ -1,0 +1,1 @@
+export { initHistoricPath } from "./historic-path";

@@ -1,0 +1,16 @@
+{
+  "name": "Real Time Map",
+  "supportEmail": "yujiezuo@geotab.com, syednaqvi@geotab.com",
+  "version": "2.0.0",
+  "items": [
+    {
+      "icon": "dist/img/icon.png",
+      "url": "dist/index.html",
+      "path": "ActivityLink/",
+      "menuName": {
+        "en": "Real Time Map"
+      }
+    }
+  ],
+  "isSigned": false
+}

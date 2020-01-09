@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfigView Tests should successfully render the config component 1`] = `
+<div
+  id="RTM-config-view"
+>
+  <div
+    id="RTM-config-container"
+  >
+    <div
+      class=""
+      id="RTM-config-header"
+    >
+      <div>
+        <button
+          class="RTM-Tab RTM-TabSelected"
+          id="RTM-ExceptionTitle"
+        >
+          Exceptions
+        </button>
+        <div
+          class="RTM-config-info"
+          id="exception-tab"
+        >
+          <input
+            autocomplete="off"
+            class="RTM-SearchBar Exceptions"
+            id="RTM-exception-search-bar"
+            list="RTM-exceptions-list"
+            placeholder="Search..."
+            type="search"
+          />
+          <datalist
+            id="RTM-exceptions-list"
+          />
+          <div
+            class="config-Header"
+          >
+            <p>
+              Selected Exceptions:
+            </p>
+            <div
+              class="toggleButtonDiv"
+              id="ToggleExceptionButtons"
+            >
+              <div>
+                <button
+                  class="toggleButton shown"
+                  id="clearExceptions"
+                  title="Toggle All Exceptions"
+                />
+                <button
+                  class="deleteButton"
+                  id="deleteExceptions"
+                  title="Delete All Exceptions"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            id="RTM-exceptions-view"
+          >
+            <div
+              class="config-list"
+            >
+              <div>
+                <ul
+                  class="mdc-list"
+                  id="ExceptionsList"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button
+          class="RTM-Tab RTM-TabNotSelected"
+          id="RTM-StatusTitle"
+        >
+          Status
+        </button>
+        <div
+          class="RTM-config-info"
+          id="status-tab"
+        >
+          <input
+            autocomplete="off"
+            class="RTM-SearchBar Status"
+            id="RTM-status-search-bar"
+            list="RTM-status-list"
+            placeholder="Search..."
+            type="search"
+          />
+          <datalist
+            id="RTM-status-list"
+          />
+          <div
+            class="config-Header"
+          >
+            <p>
+              Selected Status:
+            </p>
+            <div
+              class="toggleButtonDiv"
+              id="ToggleStatusButtons"
+            >
+              <button
+                class="toggleButton shown"
+                id="toggleStatus"
+                title="Toggle All Statuses"
+              />
+              <button
+                class="deleteButton"
+                id="deleteStatus"
+                title="Delete All Statuses"
+              />
+            </div>
+          </div>
+          <div
+            id="RTM-status-view"
+          >
+            <div
+              class="config-list"
+            >
+              <div>
+                <ul
+                  class="mdc-list"
+                  id="StatusList"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button
+          class="RTM-Tab RTM-TabNotSelected"
+          id="RTM-VehicleTitle"
+        >
+          Vehicles
+        </button>
+        <div
+          class="RTM-config-info"
+          id="vehicle-tab"
+        >
+          <input
+            autocomplete="off"
+            class="RTM-SearchBar Vehicles"
+            id="RTM-vehicle-search-bar"
+            list="RTM-vehicles-list"
+            placeholder="Search..."
+            type="search"
+          />
+          <datalist
+            id="RTM-vehicles-list"
+          />
+          <div
+            class="config-Header"
+          >
+            <p>
+              Selected Vehicles:
+            </p>
+            <div
+              class="toggleButtonDiv"
+              id="ToggleDeviceButtons"
+            >
+              <button
+                class="toggleButton shown"
+                id="clearDevices"
+                title="Toggle All Devices/Groups"
+              />
+              <button
+                class="deleteButton"
+                id="deleteDevices"
+                title="Delete All Devices/Groups"
+              />
+            </div>
+          </div>
+          <div
+            id="RTM-vehicles-view"
+          >
+            <div
+              class="config-list"
+            >
+              <div>
+                <ul
+                  class="mdc-list"
+                  id="VehicleList"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

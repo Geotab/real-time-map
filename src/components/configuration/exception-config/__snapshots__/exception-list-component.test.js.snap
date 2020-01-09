@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should successfully render the component and match screenshot 1`] = `
+<li
+  className="mdc-list-item"
+  key="1"
+>
+  <span
+    className="RTM-iconSquare mdc-list-item__graphic material-icons filterIcon hideConfig "
+    onClick={[Function]}
+    title="Hide/Show"
+  />
+  <span
+    className="RTM-iconSquare mdc-list-item__graphic material-icons exception"
+    style={
+      Object {
+        "backgroundColor": "rgba(1,2,3)",
+      }
+    }
+  />
+  <span
+    className="RTM-ConfigListItem mdc-list-item__text"
+    id="RTMnode-1"
+  >
+    test device
+  </span>
+  <span
+    className="mdc-list-item__meta material-icons"
+    onClick={[Function]}
+  />
+</li>
+`;
