@@ -3,8 +3,13 @@
 ### Getting started
 
 1. Download the repo.
-2. Run `npm install` to install all dependencies.
-3. Run `npm run build` and you should have a working mygeotab addin in the dist folder!
+2. Execute `npm install` to install all dependencies.
+3. Execute `npm run build`, then find the MyGeotab compatible addin in the dist folder!
+
+### For Developers
+
+1. Execute `npm install` to install all dependencies.
+2. Execute `npm run devBuild && npm run devServer` to start the dev server (or execute dev.sh). This creates a server that can be tested in a MyGeotab test enviroment.
 
 ### Official documentation
 
@@ -72,13 +77,6 @@ If get exception data is enabled, then upon clicking an exception path, a popup 
 If get status feed is enabled, then diagnostic status data would be displayed in the popup as well:
 
 <kbd><img src="img/sample/CarStatusMarkerPopup.png"></kbd>
-### How to add new Exceptions/Rules
-
-https://www.geotab.com/video/set-rules-fleet-mygeotab/
-
-https://www.geotab.com/video/advanced-rules-and-groups/
-
-Any rules added in MyGeoTab will be displayed on this map if the exception has occurred, using the color selected in rule settings.
 
 ### Additional resources
 
@@ -87,6 +85,7 @@ https://my.geotab.com/sdk/api/apiReference.html
 https://leafletjs.com/index.html
 
 ### License
+
 MIT License
 
 Copyright (c) 2020 Geotab Inc.
