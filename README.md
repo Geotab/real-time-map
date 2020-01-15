@@ -84,6 +84,8 @@ https://my.geotab.com/sdk/api/apiReference.html
 
 https://leafletjs.com/index.html
 
+For more information or inquiries please contact danisnguyen@geotab.com
+
 ### License
 
 MIT License

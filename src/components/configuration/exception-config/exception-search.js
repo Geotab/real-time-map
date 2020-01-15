@@ -35,7 +35,7 @@ export const exceptionSearch = {
 				exceptionSearch.buildExceptionDisplayList(mapPropsToComponent);
 			}
 		}).catch(error =>
-			console.warn("38", "Server is unavailable, please try again later.")
+			console.warn("Server is unavailable, please try again later: ", error)
 		);
 	},
 
