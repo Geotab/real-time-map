@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 9000;
 
 //Allow CORS via middleware
 app.use(function(req, res, next) {
@@ -24,7 +24,7 @@ app.get("/translations/:name", (req, res) => {
 });
 
 app.get("/img/:name", (req, res) => {
-  res.sendFile(__dirname + "/dist/img/" + req.params.name);
+	res.sendFile(__dirname + "/dist/img/" + req.params.name);
 });
 
 app.get("/", function(req, res) {
@@ -36,5 +36,5 @@ app.get("*", function(req, res) { //redirects to root page on all other requests
 });
 
 app.listen(port, () => {
-	console.log(`Running app on Port ${port}`)
+	console.log(`Running app on Port ${port}`);
 });

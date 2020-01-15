@@ -1,0 +1,1 @@
+( trap 'kill %1' SIGINT; npm run devBuild & sleep 12 && npm run devServer )

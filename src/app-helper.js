@@ -10,7 +10,7 @@ import "leaflet/dist/leaflet.css";
 import { initDateKeeper } from "./services/date-keeper";
 import { initHistoricalFeedRunner, initRealTimeFeedRunner } from "./services/data-feed/data-feed-getter";
 import layerModel from "./components/map/layers";
-import {mapModel} from "../src/components/map/map-model";
+import { mapModel } from "../src/components/map/map-model";
 import storage from "./dataStore";
 import { initView } from "./index";
 import {
