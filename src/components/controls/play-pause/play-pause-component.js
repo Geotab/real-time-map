@@ -6,6 +6,7 @@ export const PlayPauseButtonComponent = () => (
     className="mdc-button"
     id="RTMControlButton"
     onClick={() => pausePlayModel.togglePausePlay()}
+    title= "Pause"
   >
   </button>
 );
