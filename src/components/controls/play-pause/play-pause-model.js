@@ -45,10 +45,12 @@ export const pausePlayModel = {
   setPlayBackground() {
     this.pausePlayIcon.classList.remove("RTM-playIcon");
     this.pausePlayIcon.classList.add("RTM-pauseIcon");
+    this.pausePlayIcon.title = "Pause";
   },
 
   setPausedBackground() {
     this.pausePlayIcon.classList.remove("RTM-pauseIcon");
     this.pausePlayIcon.classList.add("RTM-playIcon");
+    this.pausePlayIcon.title = "Play";
   }
 };
