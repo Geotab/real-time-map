@@ -1,0 +1,118 @@
+So first an introduction into where it all started. 
+
+What you see on the screen here is the old version of the real time map, which is an app that we had built on the Maps BI platform, and old and deprecated marketplace addin. 
+
+Maps BI was a dashboarding suite used for interactive reports and dashboards and the real time map was a dashboard that was a side feature that was included. 
+
+Because this version of the real time map was built as an offshoot from Maps BI, it came with a lot overhead needed just to get this small part of a larger solution installed.
+
+There were many flaws and limitations with this app since it was not, on its own, a core product. This included inflexible customization options, poor playback controls, and scalability issues. 
+
+In addition to that, it was more of a black box solution, due to the way it was developed. If you wanted to make changes, it had to be done in the backend by a developer on our team, recompliled and redeployed to to the server.
+
+Despite all of these issues, the real time map was still being used a lot, so we began working on its successor, which would extract it as a stand alone addin and improve upon all of these issues.
+
+Before we get into the features of our app, you may have noticed that we have decided to open source this project, and I’m sure many are wondering why.
+
+The decision to open source this project came about after weighing the pro’s and con’s of the advantages of open sourcing vs owning the product ourselves, so I want to quickly go over what went into that decision
+
+Besides the obvious that open sourcing means free for all, open sourcing the app also gives you full access to the code base to see what’s happening under the hood. This is a great way to see and learn by example, what is possible with the Geotab API and the datafeed
+
+Having full visibility and access to the code and being able to own it and host it yourself will then give you the option to customize and innovate. We had realized through Maps BI that there are many different use cases for a real time map, and we simply couldn’t build for all of them. 
+
+Instead, what we’ve done is built an app with a good foundation, that works great right out of the box, but by open sourcing it, there now a platform for our partners to grow. This empowers our marketplace partners and resellers to add their own unique touch, whether it’s something as simple as restyling or rebranding to suit your own design principles and themes, right down to full fledged features that you would want for your own unique business case..
+
+And finally some of the most successful pieces of software out there are open sourced, and one of the contributing factors to that is due to the feedback loop from community contribution. By allowing for open collaboration as an open source project, we are able to gather far more insights and ideas from the community that will ultimately make this a better product.
+
+What you see on the screen now is the look and feel of the new real time map, as it would appear inside a myGeotab database.
+
+So with the new version of the real time map, we wanted to provide all of the same features that we had in the MapsBI version, plus a host of new features that would make it more user friendly. You’ll of course have vehicle location, trip information, and vehicle details displayed on the map
+
+But something that we have to work with that uber and lyft don’t, is Geotab’s GO Device. We have access to so much more data than just GPS data, using Exceptions and myGeotab’s Rules Engine, and the thousands of status diagnostics and engine measurement data that we collect.
+
+What we’ve created is a real time map sandbox that gives you access to the gps, exception and status data and allows you to visualize all of that in real time, and I’ll demonstrate how we achieve displaying each of those here.
+
+
+
+The first feature of course is GPS location tracking and trips history. We have route drawing, as well as centering and following on a vehicle. 
+
+I would like to state that on most of the slides today you’ll only see one or two vehicles on the map at a time, but this is not a limitation of the app. It’s the opposite in fact. The app can handle displaying over a thousand vehicles all at the same time on the app, which was tested using Geotabs internal myGeotab database, 
+
+Because the app will give an eye in the sky, big brother effect, being able to monitor and track hundreds of vehicles in real time comes with some privacy concerns so I’m not able to publicly demo the scale of what we can accomplish here.
+
+A lot of the inspiration we took when we designed this is from another popular playback app, Youtube. We wanted this to feel as seamless as playing a video on youtube, where you can load up the “video” and click on the time and playback from that instant, including playback controls to to view exactly what you’re interested in seeing.
+
+Some things to notice about the interface. You’ll notice the control bar at the bottom has a few things to control the playback.
+
+Play/Pause
+Speed Control
+Date Selection - Despite the “Real Time Map” name, the app isn’t just limited to viewing data in real time. We have the capability to go back in the past and playback historical data as well.
+
+One thing to note is that the scope of the data at given given time, is limited to a single day. By default, you’ll be viewing the current date and the data that is loaded will be limited to that day. If you were to change the day then the data is cleared and loaded again for the newly selected day.
+
+
+LIVE Button 
+On the other side of the control interface, we have a LIVE button, which simply sets the player the the current live time.
+
+Start and Current Time
+The other thing you’ll see here are inputs for the start time and current time, which are part of the slider control
+
+Slider - If you take a look at the slider, You’ll see that it has a head and tail, for the start and current time of the data you’re viewing. So unlike a youtube video, which only has a single frame of reference, once we start playing the data we are still displaying all the data that you’ve already watched. With hundreds of active vehicles, if you were to display the entire days worth of activity, you’re gonna have something that looks like this. (next slide)
+
+You can see that the map is pretty much covered entirely in blue routes of the vehicles. 
+
+A lot can happens in a day, and with multiple vehicles and lots of activity, playing back and displaying all the data from the beginning of the day eventually becomes pretty cluttered
+
+And while this may have some uses, such as for coverage maps, snow plow coverage maps comes to mind, you’ll want a way to narrow down the time frame of the data.
+
+To control this then, we modified the slider so that there is now a tail end, for the start time, and the head arrow, for the current time. You can also slide the entire slider to shift the “active” time range of data displayed on the map.
+
+This allows you to very precisely specify the window of time are you are interested in, which is what the Start Time: and Current Time: inputs are for. You can click on the slider to approximate the start and current time, or you can use the keyboard inputs on the control bar to specify the exact minute or second you want to play back from.
+
+You can also see from the animation here that as I shift the time, the map and the data displayed is instantly updated to reflect the new time frame. 
+
+
+As I mentioned before, there is potentially a lot of data that can be displayed all at once, which is certainly the case for larger fleets.
+
+What you see on the screen here is the first of a few customization options for the app. You can see that we already have a single vehicle selected in our list, Geotab Connect Demo, and so we’re adding in a Vehicle Group, called Real Time Map Test to the map, which instantly appears. The groups are of course the ones already defined in any given myGeotab Database., and there is also the option to hide and show any of these at the click of a button
+
+
+We are also able to add exceptions to the map. These are again already defined in your myGeotab database and once we add them, they will appear on the map as they are triggered.
+
+In this example here, were going to add the speeding exception, which is instantly shown on the map, 
+
+As you can see our friend here broke the speeding rule again, which is highlighted on the map as it’s happening
+
+Using exceptions, you can be pretty creative with the capabilities of the app. Two of the most common uses for this that I have seen in the past are 1: For snow plow coverage. You can set up exceptions to trigger when the plows are up or down, or when the salt and sand blasters are on or off, to get a coverage map of which roads have been covered, and which have not.  The other case is with Temperature sensors. For fleets with temperature sensitive units, again by setting up an exception for whether the temperature sensor units go above or below a certain threshhold, you can monitor whether or not the sensors triggered a threshold breach.
+
+
+The last major feature we have is to add Status diagnostic data to the map. Unlike exceptions, status data doesn’t really make sense to be visualized on the map on the vehicles route itself, so what we have here is a popup window for a vehicle that displays the status data.
+
+You can search for status diagnostics in the configuration panel and add them to the popup, which you can see is immediately updated. The data itself it updated every other second, and it was designed to do this due to a limitation on Geotabs API, which limits calls to 60 per minute, so we’ve limited the status data updates to every 2 seconds instead of every second in order to stay well under this limit.
+
+We’ve tried to normalize the rounding and units of measure as best we could in the status popup, but there are hundreds of thousands different engine measurements so what you see on the popup is pretty much the exact value that is returned from the myGeotab API.
+
+In case anyone was interested in how we are handling the data, we have 2 processes that are working together when the map loads. 
+
+The first is the real time data processor, this is always running, which polls Geotab data feed and collects real time data as is comes in.
+
+But we also do a historical data pull for the entire day up to the current time and cache it. 
+
+So when you first load up the app, you’ll get a little dialogue that says Fetching Historical Data and you’ll see a small loading bar at the top of the screen to indicate its progress. After a few seconds, you’ll get a message saying that the historical data load is complete.
+
+What this means now is that you have all the historical data for that given day, and you’re free to move the slider and change the time of to play around with that data. What that also means is that if you leave this addin and go to another page and come back later, all the data thats already been loaded will still be there to avoid redundancy.
+
+
+Finally, to quickly go over some of the more minor features of the app happening under the hood.
+
+All of the configuration options we just went through are saved on a by user basis, so different managers can customize the app to be tailored to their own use case, and it won’t affect other users configuration
+
+In addition to that, I had mentioned it before but this app is simply a layer on top of myGeotab. The groups and exceptions are all defined in myGeotab and we draw from that, which includes the colors of the lines on the map for exceptions.
+
+When using the app to view any given day, the historical data for that entire day is pulled once and cached. This is done to avoid redundancy in pulling data, which helps a lot with performance and efficiency. In the past, data was loaded on demand, so moving around different times of the day would cause data to be loaded each time, which was a factor in the scalability issues in the old version.
+
+On the technology stack, the app is a NodeJS app built with a handful of small javascript libraries which makes it very lightweight. There is no server side processing and you don’t need an SQL database (how our old version was built). Everything is done client side in the browser.
+
+Everything was built using myGeotabs SDK and API which is also publicly available, which means that anybody could have done this. There’s no secret technology behind the scenes here
+
+As for hosting, we’ve been able to host the app in a number of ways. We’ve used a traditional web server. We’ve containerized the app and created a docker image. myGeotab database has the option of uploading a zip file of the app directly to the database, which is also an option to host this app.
