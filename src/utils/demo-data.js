@@ -94,8 +94,6 @@ const demoDevice = {
 
 function createLogRecord(dateTime, deviceID, latlng, speed) {
 
-	// console.warn(93, latlng);
-
 	const [latitude, longitude] = latlng;
 
 	return {
