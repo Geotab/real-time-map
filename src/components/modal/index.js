@@ -1,0 +1,1 @@
+export { TutorialModal } from "./modal-component";
