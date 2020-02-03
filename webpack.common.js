@@ -49,12 +49,12 @@ module.exports = {
     {
       test: /\.(png|svg|jpg|gif)$/,
       use: [{
-        loader: 'url-loader',
-        options: { 
-            limit: 8000, // Convert images < 8kb to base64 strings
-            name: 'images/[hash]-[name].[ext]'
-        } 
-    }]
+        loader: "url-loader",
+        // options: {
+        //   limit: 80000, // Convert images < 8kb to base64 strings
+        //   name: 'images/[hash]-[name].[ext]'
+        // }
+      }]
     }
     ]
   },
@@ -64,7 +64,7 @@ module.exports = {
     }]),
     new CopyWebpackPlugin([{
       from: "./img/**/*"
-    }]),    
+    }]),
     new CircularDependencyPlugin({
       exclude: /a\.js|node_modules/,
       failOnError: true //change to false when debugging to fix these circular dependencies
