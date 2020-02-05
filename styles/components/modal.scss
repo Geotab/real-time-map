@@ -1,0 +1,122 @@
+#RTM-ReadmeModal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 3600;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+
+	#RTM-ModalTitleDiv {
+		display: flex;
+		justify-content: space-between;
+		height: 3.6rem;
+		border-bottom: 1px solid;
+		
+		#RTM-modal-title{
+			margin: auto;
+		}
+	}
+
+	#RTM-ModalCloseButton {
+		color: #aaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+		background:none;
+		border: none;
+	}
+
+	#RTM-ModalCloseButton:hover,
+	#RTM-ModalCloseButton:focus {
+		color: black;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	#RTM-ModalContent {
+		width: 50%;
+		height: 75%;
+		margin: 5% auto;
+		background: whitesmoke;
+		border-radius: 12px;
+		padding: 3px 6px;
+	}
+
+	#RTM-ReadmeContent {
+		height: calc(100% - 3.9rem);
+		overflow-x: hidden;
+		overflow-y: auto;
+		margin: 6px;
+
+		.RTM-zoomIcon {
+			height: 6.5em;
+			width: 4em;
+			background-image: url(../../img/sample/zoomIcon-min.png);
+			border: 0.5px solid;
+		}
+		
+		.RTM-configPNG {
+			height:60%;	
+			background-image: url(../../img/sample/config12.gif);
+			border: none;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+		
+		.RTM-filterCar {
+			height: 16em;
+			width: 29em;
+			background-image: url(../../img/sample/filterCar-min.png);
+			border: 0.5px solid;
+		}
+		
+		.RTM-controlBarPNG {
+			height:60%;
+			background-image: url(../../img/sample/slider-example.gif);
+			border: none;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+			// background-attachment: fixed;
+		}
+		
+		.RTM-dateTimePNG {
+			height:60%;
+			background-image: url(../../img/sample/controlbar-example.gif);
+			border: none;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+		
+		.RTM-focusCarPng {
+			height: 6.5em;
+			width: 21.5em;
+			background-image: url(../../img/sample/focusCarButton-min.png);
+			border: 0.5px solid;
+		}
+		
+		.RTM-carFocused {
+			height: 64em;
+			width: 84.5em;
+			background-image: url(../../img/sample/carFocused-min.png);
+			border: 0.5px solid;
+		}
+		
+		.RTM-carStatusPopup {
+			height: 10.5em;
+			width: 19em;
+			background-image: url(../../img/sample/CarStatusMarkerPopup-min.png);
+			border: 0.5px solid;
+		}
+		
+		.RTM-exceptionPopup {
+			height: 11em;
+			width: 18.5em;
+			background-image: url(../../img/sample/exceptionPopup-min.png);
+			border: 0.5px solid;
+		}
+	}
+}

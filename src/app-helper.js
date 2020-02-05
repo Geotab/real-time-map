@@ -3,6 +3,7 @@ import "../styles/imports/material.scss";
 import "../styles/components/config-panel.scss";
 import "../styles/components/control-bar.scss";
 import "../styles/components/map.scss";
+import "../styles/components/modal.scss";
 import "normalize.css";
 import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css"; // Re-uses images from ~leaflet package
@@ -17,12 +18,12 @@ import {
 	apiConfig,
 	userInfo
 }
-from "./dataStore/api-config";
+	from "./dataStore/api-config";
 import {
 	resetAnimationOnFocus,
 	resetTransitionAnimation
 }
-from "./utils/helper";
+	from "./utils/helper";
 
 export function initBeforeLogin() {
 	initDateKeeper();

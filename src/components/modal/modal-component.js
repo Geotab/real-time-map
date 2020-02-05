@@ -3,7 +3,7 @@ import { ModalContent } from "./modal-content";
 
 export const TutorialModal = (props) => {
 	return (
-		<div id="RTM-ReadmeModal">
+		<div id="RTM-ReadmeModal" onClick={props.onModalClose}>
 			<div id="RTM-ModalContent" >
 				<div id="RTM-ModalTitleDiv" >
 					<h2 id="RTM-modal-title">Real Time Map</h2>
