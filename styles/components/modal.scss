@@ -56,7 +56,7 @@
 			border: 0.5px solid;
 		}
 		
-		.RTM-configPNG {
+		.RTM-config12GIF {
 			height:60%;	
 			background-image: url(../../img/sample/config12.gif);
 			border: none;
@@ -66,13 +66,15 @@
 		}
 		
 		.RTM-filterCar {
-			height: 16em;
-			width: 29em;
+			height:36%;	
 			background-image: url(../../img/sample/filterCar-min.png);
-			border: 0.5px solid;
+			border: none;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
 		}
 		
-		.RTM-controlBarPNG {
+		#RTM-SLIDER-EXAMPLE {
 			height:60%;
 			background-image: url(../../img/sample/slider-example.gif);
 			border: none;
@@ -82,9 +84,18 @@
 			// background-attachment: fixed;
 		}
 		
-		.RTM-dateTimePNG {
+		#RTM-control-bar-example {
 			height:60%;
 			background-image: url(../../img/sample/controlbar-example.gif);
+			border: none;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+
+		#RTM-time-control-example {
+			height:60%;
+			background-image: url(../../img/sample/timecontrol-example.gif);
 			border: none;
 			background-size: contain;
 			background-repeat: no-repeat;
@@ -117,6 +128,67 @@
 			width: 18.5em;
 			background-image: url(../../img/sample/exceptionPopup-min.png);
 			border: 0.5px solid;
+		}
+
+		#RTM-dataLoad1 {
+			height:18%;
+			background-image: url(../../img/sample/dataload1-example.gif);
+			border: none;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+			// background-attachment: fixed;
+		}
+
+		#RTM-dataLoad2 {
+			height:60%;
+			background-image: url(../../img/sample/dataload-example.gif);
+			border: none;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+			// background-attachment: fixed;
+		}
+
+		#RTM-exception-example {
+			height:60%;
+			background-image: url(../../img/sample/exception-example.gif);
+			border: none;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+			// background-attachment: fixed;
+		}
+
+		
+		#RTM-groups-example {
+			height:60%;
+			background-image: url(../../img/sample/groups-example.gif);
+			border: none;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+			// background-attachment: fixed;
+		}
+
+		#RTM-speeding-example {
+			height:60%;
+			background-image: url(../../img/sample/speeding-example.gif);
+			border: none;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+			// background-attachment: fixed;
+		}
+
+		#RTM-speeding-example2 {
+			height:60%;
+			background-image: url(../../img/sample/speeding2-example.gif);
+			border: none;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+			// background-attachment: fixed;
 		}
 	}
 }
