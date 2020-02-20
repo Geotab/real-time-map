@@ -1,15 +1,23 @@
 # READ ME
 
-### Getting started
+### How to Install The Real Time Map Add-in:
 
 1. Download the repo.
 2. Execute `npm install` to install all dependencies.
-3. Execute `npm run build`, then find the MyGeotab compatible addin in the dist folder!
+3. Execute `npm run build`, to build the add-in.
+4. After the build succeeds, you can find the MyGeotab compatible add-in inside the "dist" folder!
+5. Remove the "dist/img/samples" folder if it exceeds your MyGeotab add-in size limitation.
+6. Navigate to MyGeotab/systemSettings/Add-Ins, and click new Add-in.
+7. Fill in the configuration field, or copy the values from configuration.json from this project.
+8. Proceed to click the "add" button in files, and upload the entire dist folder (excluding the dist/img/samples folder) to Mygeotab.
+9. Navigate to the Real Time Map addin page (which should be under "Activity" if you used the provided configuration file)
 
 ### For Developers
 
 1. Execute `npm install` to install all dependencies.
 2. Execute `npm run devBuild && npm run devServer` to start the dev server (or execute dev.sh). This creates a server that can be tested in a MyGeotab test enviroment.
+
+Real Time Map is not meant to be used or developed standalone! Please ensure you are running this application inside of a proper MyGeotab environment.
 
 ### Official documentation
 
