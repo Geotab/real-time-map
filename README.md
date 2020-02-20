@@ -6,11 +6,10 @@
 2. Execute `npm install` to install all dependencies.
 3. Execute `npm run build`, to build the add-in.
 4. After the build succeeds, you can find the MyGeotab compatible add-in inside the "dist" folder!
-5. Remove the "dist/img/samples" folder if it exceeds your MyGeotab add-in size limitation.
-6. Navigate to MyGeotab/systemSettings/Add-Ins, and click new Add-in.
-7. Fill in the configuration field, or copy the values from configuration.json from this project.
-8. Proceed to click the "add" button in files, and upload the entire dist folder (excluding the dist/img/samples folder) to Mygeotab.
-9. Navigate to the Real Time Map addin page (which should be under "Activity" if you used the provided configuration file)
+5. Navigate to MyGeotab/systemSettings/Add-Ins, and click new Add-in.
+6. Fill in the configuration field, or copy the values from configuration.json from this project.
+7. Proceed to click the "add" button in files, and upload the entire dist folder to Mygeotab.
+8. Navigate to the Real Time Map addin page (which should be under "Activity" if you used the provided configuration file)
 
 ### For Developers
 
@@ -23,17 +22,17 @@ Real Time Map is not meant to be used or developed standalone! Please ensure you
 
 Upon starting the map, you will be greeted with the following landing page:
 
-<kbd><img src="img/sample/start.png"></kbd>
+<kbd><img src="readme-images/start.png"></kbd>
 
 On the top left hand side is the zoom controls.
 
-<kbd><img src="img/sample/zoomIcon.png"></kbd>
+<kbd><img src="readme-images/zoomIcon.png"></kbd>
 
 ### Configuration Panel
 
 The arrow icon on the right will expand to open the configuration panel on click.
 
-<kbd><img src="img/sample/config12.gif"></kbd>
+<kbd><img src="readme-images/config12.gif"></kbd>
 
 The three tabs in the panel allow users to search Exceptions, Statuses and filter the map by Vehicle/Groups.
 
@@ -43,7 +42,7 @@ Users may toggle the visibility of the configuration selection by clicking on th
 
 Configuration settings persist along sessions with the same user name, they're loaded and applied upon login.
 
-<kbd><img src="img/sample/filterCar.png"></kbd>
+<kbd><img src="readme-images/filterCar.png"></kbd>
 
 Clicking on the Vehicle Icon in the Vehicle Tab will set the view to the car on the Map.
 
@@ -51,7 +50,7 @@ Clicking on the Vehicle Icon in the Vehicle Tab will set the view to the car on 
 
 On the bottom of the page is the control bar, with the following features:
 
-<kbd><img src="img/sample/controlBar.png"></kbd>
+<kbd><img src="readme-images/controlBar.png"></kbd>
 
 Two sliders on top, the rectangular slider can be dragged to select a new time onwards from which the Vehicle Paths are shown on the Map.
 
@@ -71,20 +70,20 @@ Two time inputs on the bottom center. The Start Time input allows users to set t
 
 Every vehicle marker, path and exception path will have a popup that is opened on click. It will look similar to this:
 
-<kbd><img src="img/sample/focusCarButton.png"></kbd>
+<kbd><img src="readme-images/focusCarButton.png"></kbd>
 
 
 On clicking the black vehicle icon near the the top right of the pop up, the map will zoom into the vehicle and add it to the list of filtered vehicles:
 
-<kbd><img src="img/sample/carFocused.png"></kbd>
+<kbd><img src="readme-images/carFocused.png"></kbd>
 
 If get exception data is enabled, then upon clicking an exception path, a popup will display the exception rule name, duration, as well as driver name.
 
-<kbd><img src="img/sample/exceptionPopup.png"></kbd>
+<kbd><img src="readme-images/exceptionPopup.png"></kbd>
 
 If get status feed is enabled, then diagnostic status data would be displayed in the popup as well:
 
-<kbd><img src="img/sample/CarStatusMarkerPopup.png"></kbd>
+<kbd><img src="readme-images/CarStatusMarkerPopup.png"></kbd>
 
 ### Additional resources
 
