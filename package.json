@@ -1,6 +1,6 @@
 {
 	"name": "real-time-map",
-	"version": "2.1.0",
+	"version": "2.2.0",
 	"description": "The Real Time Dashboard project is an open source foundation for real time GPS, exception, and status tracking that will allow an organization to track their fleet data in real time or playback historical data on the map.",
 	"main": "server.js",
 	"scripts": {
