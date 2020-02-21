@@ -6,7 +6,7 @@ import {
 	handleBlur
 }
 from "./app-helper";
-// import { geotab } from "./utils/demo";
+
 geotab.addin.realTimeMap = function(api, state) {
 	return {
 		initialize(api, state, callback) {

@@ -1,6 +1,6 @@
 {
 	"name": "real-time-map",
-	"version": "2.0.2",
+	"version": "2.1.0",
 	"description": "The Real Time Dashboard project is an open source foundation for real time GPS, exception, and status tracking that will allow an organization to track their fleet data in real time or playback historical data on the map.",
 	"main": "server.js",
 	"scripts": {
@@ -17,9 +17,9 @@
 	"author": "Jay Zuo",
 	"license": "ISC",
 	"dependencies": {
-		"@babel/core": "^7.7.4",
-		"@babel/plugin-proposal-object-rest-spread": "^7.7.4",
-		"@babel/preset-env": "^7.7.4",
+		"@babel/core": "^7.8.4",
+		"@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+		"@babel/preset-env": "^7.8.4",
 		"@material/select": "^3.2.0",
 		"@material/slider": "^3.2.0",
 		"babel-loader": "^8.0.5",
@@ -27,13 +27,13 @@
 		"babel-preset-env": "^1.7.0",
 		"babel-preset-react": "^6.24.1",
 		"circular-dependency-plugin": "^5.2.0",
-		"enzyme": "^3.10.0",
-		"enzyme-adapter-react-16": "^1.15.1",
-		"enzyme-to-json": "^3.4.3",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.2",
+		"enzyme-to-json": "^3.4.4",
 		"eslint": "^5.16.0",
 		"eslint-loader": "^2.2.1",
 		"eslint-plugin-jsx": "^0.1.0",
-		"eslint-plugin-react": "^7.16.0",
+		"eslint-plugin-react": "^7.18.3",
 		"express": "^4.16.4",
 		"glob": "^7.1.6",
 		"idb": "^4.0.5",
@@ -44,14 +44,14 @@
 		"material-components-web": "^3.2.0",
 		"moment": "^2.24.0",
 		"normalize.css": "^8.0.1",
-		"nouislider": "^14.0.3",
+		"nouislider": "^14.1.1",
 		"propellerkit-range-slider": "^1.2.0",
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
-		"rxjs": "^6.5.3"
+		"rxjs": "^6.5.4"
 	},
 	"devDependencies": {
-		"@babel/preset-react": "^7.7.4",
+		"@babel/preset-react": "^7.8.3",
 		"babel-eslint": "^10.0.3",
 		"copy-webpack-plugin": "^4.1.1",
 		"css-loader": "^2.1.0",
@@ -63,10 +63,10 @@
 		"nodemon": "^1.19.4",
 		"sass-loader": "^7.3.1",
 		"style-loader": "^0.23.1",
-		"terser-webpack-plugin": "^2.2.1",
+		"terser-webpack-plugin": "^2.3.5",
 		"url-loader": "^2.3.0",
-		"webpack": "^4.41.2",
-		"webpack-cli": "^3.3.10",
+		"webpack": "^4.41.6",
+		"webpack-cli": "^3.3.11",
 		"webpack-merge": "^4.2.2"
 	}
 }
