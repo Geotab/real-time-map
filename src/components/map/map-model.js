@@ -61,7 +61,7 @@ export const mapModel = {
 					.then(result =>
 						mapModel.mapSetView(L.latLng(result[0].y, result[0].x))
 					)
-					.catch(() => mapModel.mapSetView(0));
+					.catch(() => mapModel.mapSetView([]));
 			})
 			.catch(() => alert("Server is unavailable, please try again later."));
 	},
