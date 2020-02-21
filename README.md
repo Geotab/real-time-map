@@ -2,7 +2,7 @@
 
 ### How to Install The Real Time Map Add-in:
 
-1. Download the repo.
+1. Download the repo and ensure you have Node V10.15 and npm V6.
 2. Execute `npm install` to install all dependencies.
 3. Execute `npm run build`, to build the add-in.
 4. After the build succeeds, you can find the MyGeotab compatible add-in inside the "dist" folder!
