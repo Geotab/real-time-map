@@ -1,38 +1,37 @@
 import GeotabApi from "mg-api-js";
-import React from "react";
-import {
-  LoginPage
-} from "./login";
-import ReactDOM from "react-dom";
-
+import { initView } from "../..";
 export const geotabStandAlone = {
-
+  initialize: undefined,
   addin: {
 
     set realTimeMap(RTM) {
-      let showError = false;
+
       const { initialize, focus, blur } = RTM();
+      geotabStandAlone.initialize = initialize;
       document.body.style.height = "100vh";
-      const rootContainer = document.getElementById("real-time-map-container");
-      ReactDOM.render(<LoginPage handleFormSubmit={handleFormSubmit} showError={showError} />, rootContainer);
+
+      const callback = api => {
+        initialize(api, state, callback);
+      };
 
       const api = GeotabApi(authenticateCallback =>
         authenticateCallback(
-          'server',
-          'database',
-          'userName',
-          'password',
+          "server",
+          "database",
+          "userName",
+          "password",
           err => {
+            const showError = true;
             console.error(err);
-            showError = true;
+            initView(false, showError);
           }
         )
       );
 
-      console.warn('21', api);
+      console.warn("21", api);
 
       const state = {};
-      const callback = () => { };
+      // const callback = () => { };
       initialize(api, state, callback);
 
     }
@@ -40,13 +39,31 @@ export const geotabStandAlone = {
 };
 
 function handleFormSubmit() {
-  const session = {
-    userName: getValue("RTM-login-email"),
-    password: getValue("RTM-login-password"),
-    database: getValue("RTM-login-database"),
-    serverName: getValue("RTM-login-server")
-  };
-  console.log(session);
+  const username = getValue("RTM-login-email");
+  const password = getValue("RTM-login-password");
+  const database = getValue("RTM-login-database");
+  const serverName = getValue("RTM-login-server");
+
+  const api = GeotabApi(authenticateCallback =>
+    authenticateCallback(
+      serverName,
+      database,
+      username,
+      password,
+      err => {
+        const showError = true;
+        console.error(err);
+        initView(false, showError);
+      }
+    )
+  );
+
+  console.warn("21", api);
+
+  const state = {};
+  const callback = () => { };
+  geotabStandAlone.initialize(api, state, callback);
+
 };
 
 function getValue(id) {

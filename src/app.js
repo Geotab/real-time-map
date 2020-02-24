@@ -10,19 +10,22 @@ import {
   geotabStandAlone
 } from "./utils/stand-alone/geotab";
 
+let isLogged = false;
+
 if (typeof geotab === "undefined") {
   window.geotab = geotabStandAlone;
 }
 
 geotab.addin.realTimeMap = function realTimeMapAddIn() {
+
   return {
     initialize(api, state, callback) {
 
-      initBeforeLogin();
+      initBeforeLogin(isLogged);
 
       loginToSession(api).then(() => {
-
-        initAfterLogin();
+        isLogged = true;
+        initAfterLogin(isLogged);
         callback();
 
       });
