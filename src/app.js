@@ -1,32 +1,39 @@
 import {
-	initBeforeLogin,
-	initAfterLogin,
-	loginToSession,
-	handleFocus,
-	handleBlur
+  initBeforeLogin,
+  initAfterLogin,
+  loginToSession,
+  handleFocus,
+  handleBlur
+} from "./app-helper";
+
+import {
+  geotabStandAlone
+} from "./utils/stand-alone/geotab";
+
+if (typeof geotab === "undefined") {
+  window.geotab = geotabStandAlone;
 }
-from "./app-helper";
 
-geotab.addin.realTimeMap = function(api, state) {
-	return {
-		initialize(api, state, callback) {
+geotab.addin.realTimeMap = function realTimeMapAddIn() {
+  return {
+    initialize(api, state, callback) {
 
-			initBeforeLogin();
+      initBeforeLogin();
 
-			loginToSession(api).then(() => {
+      loginToSession(api).then(() => {
 
-				initAfterLogin();
-				callback();
+        initAfterLogin();
+        callback();
 
-			});
-		},
+      });
+    },
 
-		focus() {
-			handleFocus();
-		},
+    focus() {
+      handleFocus();
+    },
 
-		blur() {
-			handleBlur();
-		}
-	};
+    blur() {
+      handleBlur();
+    }
+  };
 };

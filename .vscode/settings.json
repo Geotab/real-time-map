@@ -5,5 +5,7 @@
 	"search.exclude": {
 		"**/node_modules": true,
 		"**/dist": true
-	}
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "vscode.typescript-language-features"
 }

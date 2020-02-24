@@ -1,4 +1,4 @@
-import storage from "../dataStore/storage";
+import storage from "../../dataStore/storage";
 
 export const generatedDevices = {};
 
