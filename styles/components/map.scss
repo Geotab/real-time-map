@@ -74,3 +74,30 @@
   width: 18px !important;
   // opacity: 0.3;
 }
+
+
+.login-form{
+  position: absolute;
+		left: calc(50% - 250px);
+		top: calc(50% - 150px);
+		z-index: 100;
+		width: 500px;
+		box-sizing: border-box;
+		background-color: #fff;
+		border: 1px solid #ccc;
+		padding: 30px;
+}
+
+#login-button{
+  font-weight: 700;
+  float: right;
+  height: 38px;
+  min-height: 40px;
+  position: relative;
+  line-height: 18px;
+  border: 1px solid #ddd;
+  background-color: #f6f6f6;
+  color: #0073ea;
+  text-decoration: none;
+
+}
