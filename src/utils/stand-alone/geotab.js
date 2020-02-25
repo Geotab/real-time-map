@@ -10,30 +10,74 @@ export const geotabStandAlone = {
   addin: {
 
     set realTimeMap(RTM) {
+
       let showError = false;
+
       const { initialize, focus, blur } = RTM();
       document.body.style.height = "100vh";
-      const rootContainer = document.getElementById("real-time-map-container");
-      ReactDOM.render(<LoginPage handleFormSubmit={handleFormSubmit} showError={showError} />, rootContainer);
 
-      const api = GeotabApi(authenticateCallback =>
-        authenticateCallback(
-          'server',
-          'database',
-          'userName',
-          'password',
-          err => {
-            console.error(err);
-            showError = true;
-          }
-        )
+      const rootContainer = document.getElementById("real-time-map-container");
+      const loginButtonPromise = new Promise(resolve =>
+        ReactDOM.render(<LoginPage handleFormSubmit={resolve} showError={showError} />, rootContainer)
       );
 
-      console.warn('21', api);
+      loginButtonPromise.then(() => {
+        const server = getValue("RTM-login-server");
+        const database = getValue("RTM-login-database");
+        const username = getValue("RTM-login-email");
+        const password = getValue("RTM-login-password");
 
-      const state = {};
-      const callback = () => { };
-      initialize(api, state, callback);
+        return new Promise((resolve, reject) => {
+
+          const api = GeotabApi(authenticateCallback =>
+            authenticateCallback(
+              server,
+              database,
+              username,
+              password,
+              err => {
+                console.error(err);
+                reject(err);
+              }
+            )
+          );
+
+          // Sample API invocation retrieves a single "Device" object
+          api.call('Get', {
+            typeName: 'Device',
+            resultsLimit: 1
+          },
+
+            function (result) {
+
+              if (result) {
+                resolve(api);
+                console.log(result);
+              }
+            },
+
+            function (err) {
+              reject();
+              console.error(err);
+            });
+
+        });
+      }).then(api => {
+
+
+
+        console.warn('Logged in', api);
+
+        const state = {};
+        const callback = () => { };
+        initialize(api, state, callback);
+
+      }).catch(err => {
+        showError = true;
+
+        console.warn('69 Couldnt log in', err);
+      });
+
 
     }
   },
