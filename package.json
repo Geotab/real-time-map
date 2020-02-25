@@ -7,7 +7,7 @@
 		"test": "jest --config=jest.config.json --coverage",
 		"devServer": "nodemon ./server.js",
 		"devBuild": "webpack --config webpack.dev.js --watch",
-		"build": "webpack --config webpack.prod.js",
+		"build": "echo Building Version 2.2.1 && webpack --config webpack.prod.js && echo Version 2.2.1 built in dist folder.",
 		"start": "node ./server.js"
 	},
 	"repository": {
