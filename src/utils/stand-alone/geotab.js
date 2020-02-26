@@ -5,97 +5,96 @@ import {
 } from "./login";
 import ReactDOM from "react-dom";
 
+
+let realTimeMapInitFunc;
+const loginState = {
+  showError: false
+};
+
 export const geotabStandAlone = {
-
   addin: {
-
     set realTimeMap(RTM) {
-
-      let showError = false;
-
       const { initialize, focus, blur } = RTM();
+      realTimeMapInitFunc = initialize;
+
       document.body.style.height = "100vh";
-
-      const rootContainer = document.getElementById("real-time-map-container");
-      const loginButtonPromise = new Promise(resolve =>
-        ReactDOM.render(<LoginPage handleFormSubmit={resolve} showError={showError} />, rootContainer)
-      );
-
-      loginButtonPromise.then(() => {
-        const server = getValue("RTM-login-server");
-        const database = getValue("RTM-login-database");
-        const username = getValue("RTM-login-email");
-        const password = getValue("RTM-login-password");
-
-        return new Promise((resolve, reject) => {
-
-          const api = GeotabApi(authenticateCallback =>
-            authenticateCallback(
-              server,
-              database,
-              username,
-              password,
-              err => {
-                console.error(err);
-                reject(err);
-              }
-            )
-          );
-
-          // Sample API invocation retrieves a single "Device" object
-          api.call('Get', {
-            typeName: 'Device',
-            resultsLimit: 1
-          },
-
-            function (result) {
-
-              if (result) {
-                resolve(api);
-                console.log(result);
-              }
-            },
-
-            function (err) {
-              reject();
-              console.error(err);
-            });
-
-        });
-      }).then(api => {
-
-
-
-        console.warn('Logged in', api);
-
-        const state = {};
-        const callback = () => { };
-        initialize(api, state, callback);
-
-      }).catch(err => {
-        showError = true;
-
-        console.warn('69 Couldnt log in', err);
-      });
-
-
+      _createLoginInput(_handleLoginClicked);
     }
   },
 };
 
-function handleFormSubmit() {
-  const session = {
-    userName: getValue("RTM-login-email"),
-    password: getValue("RTM-login-password"),
-    database: getValue("RTM-login-database"),
-    serverName: getValue("RTM-login-server")
-  };
-  console.log(session);
+function _createLoginInput(handleFormSubmit) {
+  ReactDOM.render(
+    <LoginPage
+      handleFormSubmit={handleFormSubmit}
+      showError={loginState.showError}
+    />,
+    document.getElementById("real-time-map-container")
+  );
 };
 
-function getValue(id) {
+function _handleLoginClicked(event) {
+  event.preventDefault();
+  const api = _createAPI();
+  _checkLoginSuccessful(api);
+};
+
+function _retrieveInputData() {
+  return {
+    email: _getValue("RTM-login-email"),
+    password: _getValue("RTM-login-password"),
+    database: _getValue("RTM-login-database"),
+    server: _getValue("RTM-login-server")
+  };
+};
+
+function _getValue(id) {
   const elem = document.getElementById(id);
   if (elem) {
     return elem.value;
   }
 };
+
+function _createAPI() {
+
+  const {
+    email,
+    password,
+    database,
+    server
+  } = _retrieveInputData();
+
+  const api = GeotabApi(function (authenticateCallback) {
+    authenticateCallback(server, database, email, password, err => {
+      loginState.showError = true;
+      console.error("70", err);
+    });
+
+  }, {
+    // Overrides for default options
+    rememberMe: false
+  });
+
+  return api;
+
+};
+
+function _checkLoginSuccessful(api) {
+  const testCall = {
+    typeName: "Device",
+    resultsLimit: 1
+  };
+
+  api.call("Get",
+    testCall,
+    () => _handleSuccessfulLogin(api),
+    err => console.error("49", err)
+  );
+};
+
+function _handleSuccessfulLogin(api) {
+  const state = {};
+  const callback = () => { };
+  console.warn("97", api);
+  realTimeMapInitFunc(api, state, callback);
+}
