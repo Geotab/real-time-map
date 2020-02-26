@@ -6,7 +6,7 @@
     {
       "icon": "dist/img/icon.png",
       "url": "dist/index.html",
-      "path": "ActivityLink/",
+      "path": "",
       "menuName": {
         "en": "Real Time Map"
       }
