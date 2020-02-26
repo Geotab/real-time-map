@@ -7,9 +7,6 @@ import ReactDOM from "react-dom";
 
 
 let realTimeMapInitFunc;
-const loginState = {
-  showError: false
-};
 
 export const geotabStandAlone = {
   addin: {
@@ -27,7 +24,6 @@ function _createLoginInput(handleFormSubmit) {
   ReactDOM.render(
     <LoginPage
       handleFormSubmit={handleFormSubmit}
-      showError={loginState.showError}
     />,
     document.getElementById("real-time-map-container")
   );
@@ -66,7 +62,7 @@ function _createAPI() {
 
   const api = GeotabApi(function (authenticateCallback) {
     authenticateCallback(server, database, email, password, err => {
-      loginState.showError = true;
+      document.getElementById("RTM-Login-error").style.display = "block";
       console.error("70", err);
     });
 
@@ -93,6 +89,7 @@ function _checkLoginSuccessful(api) {
 };
 
 function _handleSuccessfulLogin(api) {
+  document.getElementById("RTM-Login-error").style.display = "none";
   const state = {};
   const callback = () => { };
   console.warn("97", api);
