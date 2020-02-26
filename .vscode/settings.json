@@ -4,7 +4,8 @@
 	"editor.tabSize": 2,
 	"search.exclude": {
 		"**/node_modules": true,
-		"**/dist": true
+    "**/dist": true,
+    "package-lock.json": true
   },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "vscode.typescript-language-features",
