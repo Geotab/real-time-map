@@ -181,9 +181,7 @@ export const geotab = {
 			initialize(api, state, callback);
 
 		}
-
 	},
-
 };
 
 export function dateToTime(date) {

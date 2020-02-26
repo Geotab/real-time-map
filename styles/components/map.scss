@@ -1,34 +1,38 @@
 #RTM-Map {
   height: 100%;
   width: 100%;
+
   .RTM-popupGrouped {
-      color: gray;
-      border: 0;
-      margin: 0;
-      font-size: 0.8em;
-      border-top: 1px solid #00AEEF;
- }
+    color: gray;
+    border: 0;
+    margin: 0;
+    font-size: 0.8em;
+    border-top: 1px solid #00AEEF;
+  }
+
   .RTM-BorderedTextBox {
-      margin: 0.5em 0;
-     //  border: 3px groove #00AEEF;
-     //  padding: 0 3px;
- }
+    margin: 0.5em 0;
+    //  border: 3px groove #00AEEF;
+    //  padding: 0 3px;
+  }
+
   .RTM-BorderedTextBox span {
-      float: right;
- }
+    float: right;
+  }
+
   .RTM-BorderedTextBox strong {
-      border-bottom: 1px groove #00AEEF;
- }
- 
+    border-bottom: 1px groove #00AEEF;
+  }
+
   .RTM-FocusMarkerButton {
-      border: 0;
-      background: url('../../img/noun_Add.svg');
-      background-repeat: no-repeat;
-      width: 24px;
-      height: 30px;
-      margin: -10px 0.3em 0 0;
-      transform: translate(0px, 10px);
- }
+    border: 0;
+    background: url('../../img/noun_Add.svg');
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 30px;
+    margin: -10px 0.3em 0 0;
+    transform: translate(0px, 10px);
+  }
 }
 
 .leaflet-control-scale {
@@ -48,7 +52,7 @@
   line-height: 1.4 !important;
 }
 
-.popupRuleName{
+.popupRuleName {
   margin: 0 !important;
   // border:inset;
 }
@@ -56,21 +60,58 @@
 #real-time-map-container {
   height: 100%;
 }
-#RTM-ViewContainer{
+
+#RTM-ViewContainer {
   height: 100%;
   width: 100%;
 }
+
 #RTM-Map-Container {
   height: calc(100% - 60px);
   width: 100%;
 }
-#checkmateContent{
+
+#checkmateContent {
   margin: 0 !important;
 }
 
-.car-icon{
+.car-icon {
   background: url('../../img/car.svg');
   height: 18px !important;
   width: 18px !important;
   // opacity: 0.3;
+}
+
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: calc(50% - 250px);
+  top: calc(50% - 150px);
+  z-index: 100;
+  width: 500px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 30px;
+}
+
+#login-button {
+  font-weight: 700;
+  border: 1px solid #ddd;
+  background-color: #f6f6f6;
+  color: #0073ea;
+}
+
+.input-row {
+  padding: 10px;
+}
+
+.login-error {
+  display: none;
+  color: #ca0b0b;
+  fill: #ca0b0b;
+  border: 2px solid #ce838f;
+  background-color: #f2dede;
 }

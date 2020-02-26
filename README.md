@@ -1,7 +1,6 @@
-# READ ME
 
-## How to Install The Real Time Map Add-in:
-### Getting the Add-in:
+# Installation
+## Getting the Add-in:
 
 * Download the latest release from the release page https://github.com/Geotab/real-time-map/releases.
 
@@ -12,21 +11,21 @@
 * Execute `npm run build`, to build the add-in.
 * After the build succeeds, you can find the MyGeotab compatible add-in inside the "dist" folder!
 
-### Installation into MyGeotab:
+## Installation into MyGeotab:
 
 1. Navigate to MyGeotab/systemSettings/Add-Ins, and click new Add-in.
 2. Fill in the configuration field, or copy the values from configuration.json from this project.
 3. Proceed to click the "add" button in files, and upload the entire dist folder to Mygeotab.
-4. Navigate to the Real Time Map addin page (which should be under "Activity" if you used the provided configuration file)
+4. Navigate to the Real Time Map addin page (which should be on the sidebar if you used the provided configuration file)
 
-### For Developers
+# Development:
 
 1. Execute `npm install` to install all dependencies.
-2. Execute `npm run devBuild && npm run devServer` to start the dev server (or execute dev.sh). This creates a server that can be tested in a MyGeotab test enviroment.
+2. Execute `npm run devBuild && npm run devServer` to start the dev server (or execute dev.sh).
 
-Real Time Map is not meant to be used or developed standalone! Please ensure you are running this application inside of a proper MyGeotab environment.
+### This creates a server (http://localhost:9000/) that can be ran and tested locally as long as you have an account with mygeotab api access.
 
-### Official documentation
+# Using The Real Time Map Add-in:
 
 Upon starting the map, you will be greeted with the following landing page:
 
@@ -36,7 +35,7 @@ On the top left hand side is the zoom controls.
 
 <kbd><img src="readme-images/zoomIcon.png"></kbd>
 
-### Configuration Panel
+## Configuration Panel
 
 The arrow icon on the right will expand to open the configuration panel on click.
 
@@ -54,7 +53,7 @@ Configuration settings persist along sessions with the same user name, they're l
 
 Clicking on the Vehicle Icon in the Vehicle Tab will set the view to the car on the Map.
 
-### Control Bar
+## Control Bar
 
 On the bottom of the page is the control bar, with the following features:
 
@@ -74,7 +73,7 @@ A date at bottom center, that also functions as an input, allowing users to sele
 
 Two time inputs on the bottom center. The Start Time input allows users to set the start time for the Vehicle Paths and the Current time input sets the Current Time on the Map.
 
-### Additional Features
+## Additional Features
 
 Every vehicle marker, path and exception path will have a popup that is opened on click. It will look similar to this:
 
@@ -93,7 +92,7 @@ If get status feed is enabled, then diagnostic status data would be displayed in
 
 <kbd><img src="readme-images/CarStatusMarkerPopup.png"></kbd>
 
-### Additional resources
+## Additional resources
 
 https://my.geotab.com/sdk/api/apiReference.html
 
@@ -101,8 +100,8 @@ https://leafletjs.com/index.html
 
 For more information or inquiries please contact danisnguyen@geotab.com
 
-### License
+# License
 
-MIT License
+## MIT License
 
-Copyright (c) 2020 Geotab Inc.
+## Copyright (c) 2020 Geotab Inc.
