@@ -16,7 +16,8 @@ module.exports = {
       use: [{
         loader: "babel-loader",
         query: {
-          presets: ["@babel/preset-env"]
+          presets: ["@babel/preset-env", "@babel/react"],
+          plugins: ["@babel/plugin-proposal-object-rest-spread", ["babel-plugin-root-import", { "rootPathSuffix": "src" }]]
         }
       },
       {
