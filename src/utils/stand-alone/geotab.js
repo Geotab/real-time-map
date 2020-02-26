@@ -5,7 +5,6 @@ import {
 } from "./login";
 import ReactDOM from "react-dom";
 
-
 let realTimeMapInitFunc;
 
 export const geotabStandAlone = {
@@ -62,17 +61,12 @@ function _createAPI() {
 
   const api = GeotabApi(function (authenticateCallback) {
     authenticateCallback(server, database, email, password, err => {
-      document.getElementById("RTM-Login-error").style.display = "block";
-      console.error("70", err);
+      _showError();
+      console.error("65", err);
     });
-
-  }, {
-    // Overrides for default options
-    rememberMe: false
   });
 
   return api;
-
 };
 
 function _checkLoginSuccessful(api) {
@@ -84,14 +78,25 @@ function _checkLoginSuccessful(api) {
   api.call("Get",
     testCall,
     () => _handleSuccessfulLogin(api),
-    err => console.error("49", err)
+    err => {
+      _showError();
+      console.error("83", err);
+    }
   );
 };
 
 function _handleSuccessfulLogin(api) {
-  document.getElementById("RTM-Login-error").style.display = "none";
+  _hideError();
+
   const state = {};
   const callback = () => { };
-  console.warn("97", api);
   realTimeMapInitFunc(api, state, callback);
+}
+
+function _showError() {
+  document.getElementById("RTM-Login-error").style.display = "block";
+}
+
+function _hideError() {
+  document.getElementById("RTM-Login-error").style.display = "none";
 }
