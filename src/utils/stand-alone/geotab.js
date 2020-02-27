@@ -5,29 +5,61 @@ import {
 } from "./login";
 import ReactDOM from "react-dom";
 
-let realTimeMapInitFunc;
+let isLoginScreenRendered = false;
 
 export const geotabStandAlone = {
   addin: {
     set realTimeMap(RTM) {
       document.body.style.height = "100vh";
-			
-//       const { initialize, focus, blur } = RTM();
-//       realTimeMapInitFunc = initialize;
-      
-        const api = GeotabApi(function (authenticateCallback) {
-					// init login code in here
-					//       _createLoginInput(_handleLoginClicked);
-    authenticateCallback(server, database, email, password, err => {
-      _showError();
-      console.error("65", err);
-    });
-  });
-     
-
+      const { initialize, focus, blur } = RTM();
+      _initStandAlone(initialize);
     }
   },
 };
+
+function _initStandAlone(initRTM) {
+  const api = GeotabApi(_authenticate);
+
+  _checkLoginSuccessful(api)
+    .then(_handleSuccessfulLogin)
+    .catch(_handleUnsuccessfulLogin);
+}
+
+
+function _authenticate(authenticateCallback) {
+  // init login code in here
+  //       _createLoginInput(_handleLoginClicked);
+  authenticateCallback(server, database, email, password, err => {
+    _showError();
+    console.error("65", err);
+  });
+}
+
+
+function _checkLoginSuccessful(api) {
+
+  return new Promise((resolve, reject) => {
+    const testCall = {
+      typeName: "Device",
+      resultsLimit: 1
+    };
+    api.call("Get", testCall, resolve, reject);
+  });
+};
+
+function _handleSuccessfulLogin(res) {
+  console.warn('51 nice!', res);
+}
+
+function _handleUnsuccessfulLogin(err) {
+  console.warn('61', err);
+
+  if (!isLoginScreenRendered) {
+    isLoginScreenRendered = true;
+    _createLoginInput();
+  }
+}
+
 
 function _createLoginInput(handleFormSubmit) {
   ReactDOM.render(
@@ -60,48 +92,34 @@ function _getValue(id) {
   }
 };
 
-function _createAPI() {
+// function _createAPI() {
 
-  const {
-    email,
-    password,
-    database,
-    server
-  } = _retrieveInputData();
+//   const {
+//     email,
+//     password,
+//     database,
+//     server
+//   } = _retrieveInputData();
 
-  const api = GeotabApi(function (authenticateCallback) {
-    authenticateCallback(server, database, email, password, err => {
-      _showError();
-      console.error("65", err);
-    });
-  });
+//   const api = GeotabApi(function (authenticateCallback) {
+//     authenticateCallback(server, database, email, password, err => {
+//       _showError();
+//       console.error("65", err);
+//     });
+//   });
 
-  return api;
-};
+//   return api;
+// };
 
-function _checkLoginSuccessful(api) {
-  const testCall = {
-    typeName: "Device",
-    resultsLimit: 1
-  };
 
-  api.call("Get",
-    testCall,
-    () => _handleSuccessfulLogin(api),
-    err => {
-      _showError();
-      console.error("83", err);
-    }
-  );
-};
 
-function _handleSuccessfulLogin(api) {
-  _hideError();
+// function _handleSuccessfulLogin(api) {
+//   _hideError();
 
-  const state = {};
-  const callback = () => { };
-  realTimeMapInitFunc(api, state, callback);
-}
+//   const state = {};
+//   const callback = () => { };
+//   realTimeMapInitFunc(api, state, callback);
+// }
 
 function _showError() {
   document.getElementById("RTM-Login-error").style.display = "block";
