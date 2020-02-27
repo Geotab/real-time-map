@@ -10,11 +10,21 @@ let realTimeMapInitFunc;
 export const geotabStandAlone = {
   addin: {
     set realTimeMap(RTM) {
-      const { initialize, focus, blur } = RTM();
-      realTimeMapInitFunc = initialize;
-
       document.body.style.height = "100vh";
-      _createLoginInput(_handleLoginClicked);
+			
+//       const { initialize, focus, blur } = RTM();
+//       realTimeMapInitFunc = initialize;
+      
+        const api = GeotabApi(function (authenticateCallback) {
+					// init login code in here
+					//       _createLoginInput(_handleLoginClicked);
+    authenticateCallback(server, database, email, password, err => {
+      _showError();
+      console.error("65", err);
+    });
+  });
+     
+
     }
   },
 };
