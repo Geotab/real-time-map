@@ -5,6 +5,8 @@ import {
 } from "./login";
 import ReactDOM from "react-dom";
 
+import storage from "../../dataStore";
+
 let initRTMFunc;
 let isLoginScreenRendered = false;
 
@@ -12,6 +14,8 @@ export const geotabStandAlone = {
   addin: {
     set realTimeMap(RTM) {
       document.body.style.height = "100vh";
+      storage.isStandAlone = true;
+
       const { initialize, focus, blur } = RTM();
       initRTMFunc = initialize;
       _authenticate();

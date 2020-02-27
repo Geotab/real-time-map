@@ -3,3 +3,4 @@ dist/
 coverage/
 *key.json
 *.zip
+release/
