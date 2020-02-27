@@ -5,6 +5,7 @@ import {
 } from "./login";
 import ReactDOM from "react-dom";
 
+let initRTMFunc;
 let isLoginScreenRendered = false;
 
 export const geotabStandAlone = {
@@ -12,12 +13,13 @@ export const geotabStandAlone = {
     set realTimeMap(RTM) {
       document.body.style.height = "100vh";
       const { initialize, focus, blur } = RTM();
-      _authenticate(initialize);
+      initRTMFunc = initialize;
+      _authenticate();
     }
   },
 };
 
-function _authenticate(initRTM) {
+function _authenticate() {
 
   const {
     email = "",
@@ -37,7 +39,7 @@ function _authenticate(initRTM) {
   );
 
   _checkLoginSuccessful(api)
-    .then(api => _handleSuccessfulLogin(initRTM, api))
+    .then(api => _handleSuccessfulLogin(api))
     .catch(_handleUnsuccessfulLogin);
 }
 
@@ -52,14 +54,13 @@ function _checkLoginSuccessful(api) {
   });
 };
 
-function _handleSuccessfulLogin(initRTM, api) {
+function _handleSuccessfulLogin(api) {
   _hideError();
-  console.warn('51 nice!', initRTM, api);
+  initRTMFunc(api, {}, () => { });
 }
 
 function _handleUnsuccessfulLogin(err) {
-  console.warn('61', err);
-
+  console.error("61", err);
   if (!isLoginScreenRendered) {
     isLoginScreenRendered = true;
     _createLoginInput();
