@@ -33,6 +33,10 @@ export const mapModel = {
       storage.map.closePopup();
     });
     storage.map.on("zoom", resetTransitionAnimation);
+
+    // set to default location if user does not allow locating.
+    const defautLocation = [43.515391, -79.684085];
+    storage.map.setView(defautLocation, 12);
   },
 
   addMapBoxTileLayer: map => {
@@ -55,7 +59,7 @@ export const mapModel = {
   },
 
   locateUserAndSetView() {
-    storage.map.locate({ setView: true });
+    storage.map.locate({ setView: true, maxZoom: 12 });
   },
 
   setMapToCompanyAddress() {
