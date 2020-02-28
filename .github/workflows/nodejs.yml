@@ -1,15 +1,19 @@
 name: Node.js CI
 
 on:
+  push:
+    branches:
+      - master
   pull_request:
     branches:
-    - master
+      - master
 
 jobs:
   build:
 
-    runs-on: windows-latest
-
+    runs-on: [windows-latest, ubuntu-latest]
+    timeout-minutes: 6
+    
     strategy:
       matrix:
         node-version: [10.x, 12.x]
@@ -22,6 +26,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run build --if-present
+    - run: npm run devBuild --if-present
     - run: npm test
       env:
         CI: true
