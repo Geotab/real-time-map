@@ -10,7 +10,7 @@
 		"devBuild": "webpack --config webpack.dev.js --watch",
 		"build": "echo 'Building Version v2.3.1...' && webpack --config webpack.prod.js && echo 'Version v2.3.1 built into the dist folder.'",
     "start": "node ./server.js",
-    "release":"npm run build && mkdir -p release && cp -avr -t release dist README.md configuration.json"
+    "release":"npm i && npm run build && mkdir release && cp -avr -t release dist README.md configuration.json"
 	},
 	"repository": {
 		"type": "git",
