@@ -1,5 +1,7 @@
 const storage = {
 
+  isStandAlone: false,
+
   startDate: undefined,
   delay: 300 * 1000,
 

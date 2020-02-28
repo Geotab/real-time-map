@@ -16,8 +16,7 @@ import { initView } from "./index";
 import {
   apiConfig,
   userInfo
-}
-  from "./dataStore/api-config";
+} from "./dataStore/api-config";
 import {
   resetAnimationOnFocus,
   resetTransitionAnimation

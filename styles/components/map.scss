@@ -115,3 +115,18 @@
   border: 2px solid #ce838f;
   background-color: #f2dede;
 }
+
+#RTM-LogoutButton{
+  cursor: pointer;
+ border-radius: 3px;
+ border: 1px solid #c5dbec;
+ background-color: #e8f3fd;
+ color: #25477b;
+ text-decoration: none;
+ line-height: 18px; 
+ z-index: 1001;
+
+ position: absolute;
+ right:3px;
+ top:6px;
+}
