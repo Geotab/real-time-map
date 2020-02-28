@@ -49,7 +49,7 @@ export function getDeviceData() {
       latLng: latLng2020,
       speed: 60
     }
-  }
+  };
 }
 
 export const exceptionData = {
