@@ -1,7 +1,7 @@
 {
   "name": "Real Time Map",
   "supportEmail": "yujiezuo@geotab.com, syednaqvi@geotab.com",
-  "version": "v2.3.1",
+  "version": "v2.3.2",
   "items": [
     {
       "icon": "dist/img/icon.png",
