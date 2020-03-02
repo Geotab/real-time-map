@@ -15,7 +15,7 @@
 
 1. Navigate to MyGeotab/systemSettings/Add-Ins, and click new Add-in.
 2. Fill in the configuration field, or copy the values from configuration.json from this project.
-3. Proceed to click the "add" button in files, and upload the entire dist folder to Mygeotab.
+3. Proceed to click the "add" button in files, and upload the entire dist folder to MyGeotab.
 4. Navigate to the Real Time Map addin page (which should be on the sidebar if you used the provided configuration file)
 
 # Development:
@@ -23,7 +23,7 @@
 1. Execute `npm install` to install all dependencies.
 2. Execute `npm run devBuild && npm run devServer` to start the dev server (or execute dev.sh).
 
-### This creates a server (http://localhost:9000/) that can be ran and tested locally as long as you have an account with mygeotab api access.
+### This creates a local server (http://localhost:9000/) that can be ran and tested locally, as long as you have an account with MyGeotab API access and can login.
 
 # Using The Real Time Map Add-in:
 
