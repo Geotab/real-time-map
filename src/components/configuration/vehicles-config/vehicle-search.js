@@ -157,8 +157,12 @@ export const deviceSearch = {
 	},
 	zoomIntoDevice(id) {
 		const deviceMarker = markerList[id];
-		const newZoomLevel = Math.max(Math.min(storage.map.getZoom() + 1, 18), 15);
-		storage.map.flyTo(deviceMarker.currentlatLng, newZoomLevel);
+		if (deviceMarker) {
+			const newZoomLevel = Math.max(Math.min(storage.map.getZoom() + 1, 18), 15);
+			storage.map.flyTo(deviceMarker.currentlatLng, newZoomLevel);
+		} else {
+			alert("Sorry, no current day data for selected vehicle.");
+		}
 	}
 };
 
