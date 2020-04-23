@@ -70,7 +70,7 @@ describe("exception search Tests", () => {
 		exceptionSearch.init(mockProps);
 	});
 
-	test("loadSavedExceptionConfig1", () => {
+	test.skip("loadSavedExceptionConfig1", () => {
 		spyOnFunction(apiHelpers, "getBlobStorage", () => Promise.resolve([]));
 		exceptionSearch.displayList = undefined;
 
@@ -79,7 +79,7 @@ describe("exception search Tests", () => {
 		});
 	});
 
-	test("loadSavedExceptionConfig2", () => {
+	test.skip("loadSavedExceptionConfig2", () => {
 		spyOnFunction(apiHelpers, "getBlobStorage", () => Promise.resolve(fakeBlobData));
 		exceptionSearch.displayList = undefined;
 

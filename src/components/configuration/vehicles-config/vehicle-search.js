@@ -1,7 +1,7 @@
 import { fromEvent } from "rxjs";
 import { map, debounceTime } from "rxjs/operators";
 import { markerList } from "../../../dataStore/map-data";
-import { getDevicesInGroups, createGroupsByNameCall, createDeviceByNameCall, makeAPIMultiCall, getBlobStorage, saveBlobStorage } from "../../../services/api/helpers";
+import { getDevicesInGroups, createGroupsByNameCall, createDeviceByNameCall, makeAPIMultiCall, getBlobStorage, saveBlobStorage, setBlobStorage } from "../../../services/api/helpers";
 import storage from "../../../dataStore";
 import layerModel from "../../map/layers";
 
@@ -24,14 +24,11 @@ export const deviceSearch = {
 	loadSavedDeviceConfig(mapPropsToComponent) {
 
 		return getBlobStorage().then(val => {
-			const cachedDevices = val
-				.map((e) => (JSON.parse(e.data)))
-				.filter((e) => e.configData.type === "Vehicle")
-				.sort((a, b) => b.date - a.date);
+			if (val.length === 0) { return; }
+			const cachedDevices = JSON.parse(val[0].data);
 
-			if (cachedDevices.length > 0) {
-				const cachedDevice = cachedDevices[0].configData;
-				deviceSearch.selectedIDS = cachedDevice.typeData;
+			if (cachedDevices.configData.Vehicle) {
+				deviceSearch.selectedIDS = cachedDevices.configData.Vehicle;
 				deviceSearch.applyFilter();
 				deviceSearch.buildDeviceDisplayList(mapPropsToComponent);
 			}
@@ -126,7 +123,8 @@ export const deviceSearch = {
 	},
 
 	saveConfig(mapPropsToComponent) {
-		saveBlobStorage("Vehicle", deviceSearch.selectedIDS);
+		storage.setBlobStorageObj ? setBlobStorage("Vehicle", deviceSearch.selectedIDS) : saveBlobStorage("Vehicle", deviceSearch.selectedIDS);
+
 		deviceSearch.applyFilter();
 		deviceSearch.buildDeviceDisplayList(mapPropsToComponent);
 	},

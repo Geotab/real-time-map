@@ -182,29 +182,55 @@ export function saveBlobStorage(type, data) {
 	const parameters = {
 		"typeName": "AddInData",
 		"entity": {
-			"addInId": "aehms3LkXvUGOegveoI8aaA",
+			"addInId": "acg-6AmDE50Wvr-AHHlrMAQ",
 			"data": JSON.stringify({
 				"userName": userInfo.userName,
 				"date": getLiveTime(),
 				"configData": {
-					"type": type,
-					"typeData": data
-				}
+					[type]: data },
 			})
 		}
 	};
-
 	return makeAPICall("Add", parameters);
+}
+
+export function setBlobStorage(type, data) {
+	return clearBlobObject(type, data).then(() => {
+		const blobObj = storage.setBlobStorageObj;
+		const blobData = JSON.parse(blobObj.data);
+		blobData.configData[type] = data;
+		blobObj.data = JSON.stringify(blobData);
+		const parameters = {
+			"typeName": "AddInData",
+			"entity": blobObj
+		};
+		return makeAPICall("Set", parameters);
+	});
+
 }
 
 export function getBlobStorage() {
 	const parameters = {
 		"typeName": "AddInData",
 		"search": {
-			"addInId": "aehms3LkXvUGOegveoI8aaA",
+			"addInId": "acg-6AmDE50Wvr-AHHlrMAQ",
 			"whereClause": `userName = "${userInfo.userName}"`,
 		}
 	};
 
 	return makeAPICall("Get", parameters);
+}
+
+export function clearBlobObject(type, data) {
+	//Storage API Limitation : Cannot delete properties of objects
+	const blobObj = storage.setBlobStorageObj;
+	const blobData = JSON.parse(blobObj.data);
+	blobData.configData[type] = "";
+	blobObj.data = JSON.stringify(blobData);
+	const parameters = {
+		"typeName": "AddInData",
+		"entity": blobObj
+	};
+	return makeAPICall("Set", parameters);
+
 }
