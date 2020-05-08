@@ -25,7 +25,6 @@ export const exceptionSearch = {
 
 			if (val.length > 0 && !storage.setBlobStorageObj) { storage.setBlobStorageObj = val[0]; }
 			else {
-				console.log(storage.setBlobStorageObj);
 				return saveBlobStorage("Exception", {}).then(() => {
 					return getBlobStorage().then(val => {
 						storage.setBlobStorageObj = val[0];
