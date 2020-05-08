@@ -1,6 +1,6 @@
 import { fromEvent } from "rxjs";
 import { map, debounceTime } from "rxjs/operators";
-import { getRulesByName, getBlobStorage, saveBlobStorage } from "../../../services/api/helpers";
+import { getRulesByName, getBlobStorage, saveBlobStorage, setBlobStorage } from "../../../services/api/helpers";
 import storage from "../../../dataStore";
 import { filterByVisibility } from "../utils/config-helpers";
 
@@ -22,15 +22,21 @@ export const exceptionSearch = {
 	loadSavedExceptionConfig(mapPropsToComponent) {
 
 		return getBlobStorage().then(val => {
-			exceptionSearch.searchInput.value = "";
-			const cachedExceptions = val
-				.map(e => JSON.parse(e.data))
-				.filter(e => e.configData.type === "Exception")
-				.sort((a, b) => b.date - a.date);
 
-			if (cachedExceptions.length > 0) {
-				const cachedException = cachedExceptions[0].configData;
-				exceptionSearch.displayList = cachedException.typeData;
+			if (val.length > 0 && !storage.setBlobStorageObj) { storage.setBlobStorageObj = val[0]; }
+			else {
+				return saveBlobStorage("Exception", {}).then(() => {
+					return getBlobStorage().then(val => {
+						storage.setBlobStorageObj = val[0];
+					});
+				});
+			};
+
+			exceptionSearch.searchInput.value = "";
+			const cachedExceptions = JSON.parse(val[0].data);
+
+			if (cachedExceptions.configData.Exception) {
+				exceptionSearch.displayList = cachedExceptions.configData.Exception;
 				storage.selectedExceptions = filterByVisibility(exceptionSearch.displayList);
 				exceptionSearch.buildExceptionDisplayList(mapPropsToComponent);
 			}
@@ -89,7 +95,7 @@ export const exceptionSearch = {
 
 	saveConfig(mapPropsToComponent) {
 		storage.selectedExceptions = filterByVisibility(exceptionSearch.displayList);
-		saveBlobStorage("Exception", exceptionSearch.displayList);
+		storage.setBlobStorageObj ? setBlobStorage("Exception", exceptionSearch.displayList) : saveBlobStorage("Exception", exceptionSearch.displayList);
 		exceptionSearch.buildExceptionDisplayList(mapPropsToComponent);
 		storage.dateKeeper$.update();
 	},

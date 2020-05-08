@@ -1,6 +1,6 @@
 import { fromEvent } from "rxjs";
 import { map, debounceTime } from "rxjs/operators";
-import { getDiagnosticByName, getBlobStorage, saveBlobStorage } from "../../../services/api/helpers";
+import { getDiagnosticByName, getBlobStorage, saveBlobStorage, setBlobStorage } from "../../../services/api/helpers";
 import storage from "../../../dataStore";
 import { filterByVisibility } from "../utils/config-helpers";
 import { STATUS } from "../../../constants/status-search";
@@ -23,17 +23,11 @@ export const diagnosticSearch = {
 	loadSavedStatusConfig(mapPropsToComponent) {
 
 		return getBlobStorage().then(val => {
+			if (val.length === 0) { return; }
+			const cachedDiagnostics = JSON.parse(val[0].data);
 
-			const cachedDiagnostics = val
-				.map(e => JSON.parse(e.data))
-				.filter(e => e.configData.type === STATUS)
-				.sort((a, b) => b.date - a.date);
-
-			if (cachedDiagnostics.length > 0) {
-
-				// Apply Status Data retrieved from Blob Storage
-				const cachedDiagnostic = cachedDiagnostics[0].configData;
-				diagnosticSearch.displayList = cachedDiagnostic.typeData;
+			if (cachedDiagnostics.configData.Status) {
+				diagnosticSearch.displayList = cachedDiagnostics.configData.Status;
 				storage.selectedStatuses = filterByVisibility(diagnosticSearch.displayList);
 				diagnosticSearch.buildStatusDisplayList(mapPropsToComponent);
 			}
@@ -90,7 +84,7 @@ export const diagnosticSearch = {
 
 	saveConfig(mapPropsToComponent) {
 		storage.selectedStatuses = filterByVisibility(diagnosticSearch.displayList);
-		saveBlobStorage("Status", diagnosticSearch.displayList);
+		storage.setBlobStorageObj ? setBlobStorage("Status", diagnosticSearch.displayList) : saveBlobStorage("Status", diagnosticSearch.displayList);
 		storage.dateKeeper$.update();
 		diagnosticSearch.buildStatusDisplayList(mapPropsToComponent);
 	},

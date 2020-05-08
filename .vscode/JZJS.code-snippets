@@ -1,62 +1,92 @@
 {
-  // Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
-  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
-  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
-  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
-  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
-  // Placeholders with the same ids are connected.
-  // Example:
-  // "Print to console": {
-  // 	"scope": "javascript,typescript",
-  // 	"prefix": "log",
-  // 	"body": [
-  // 		"console.log('$1',$1);",
-  // 		"$2"
-  // 	],
-  // 	"description": "Log output to console"
-  // }
-  "console.warn()": {
-    "scope": "javascript,typescript",
-      "prefix": "con,cw",
-        "body": [
-          "console.warn('${1:$TM_LINE_NUMBER}', $0);",
-        ],
-          "description": "Log output to console"
-  },
+	// Place your snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted.
 
-  "Destruct": {
-    "scope": "javascript,typescript",
-      "prefix": "dc,cons,destruct",
-        "body": [
-          "const {", " ${0:property}","} = ${1:object};",
-        ],
-          "description": "Destruct"
-  },
+	// Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
 
-  "import": {
-    "scope": "javascript,typescript",
-      "prefix": "imp",
-        "body": [
-          "import {", "  ${0:export}","} from '${1:module}';",
-        ],
-          "description": "Import"
-  },
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript, javascriptreact",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1',$1);",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
 
-  "hasOwnProperty": {
-    "scope": "javascript,typescript",
-      "prefix": "hasO",
-        "body": [
-          "${1:Object}.hasOwnProperty(${0:prop})",
-        ],
-          "description": "hasOwnProperty"
-  },
+	"console.warn()": {
+		"scope": "javascript, javascriptreact",
+		"prefix": "con, cw",
+		"body": [
+			"console.warn('${1:$TM_LINE_NUMBER}', $0)",
+		],
+		"description": "Log output to console"
+	},
 
-  "expect": {
-    "scope": "javascript,typescript",
-      "prefix": "expect,exp",
-        "body": [
-          "expect(${1:Object}).toEqual(${0:prop})",
-        ],
-          "description": "hasOwnProperty"
-  }
+	"Destruct": {
+		"scope": "javascript, javascriptreact",
+		"prefix": "dc, cons, destruct",
+		"body": [
+			"const {", " ${1:property}", "} = ${0:object};",
+		],
+		"description": "Destruct"
+	},
+
+	"import": {
+		"scope": "javascript, javascriptreact",
+		"prefix": "imp",
+		"body": [
+			"import {", "  ${0:export}", "} from '${1:module}';",
+		],
+		"description": "Import"
+	},
+
+	"hasOwnProperty": {
+		"scope": "javascript, javascriptreact",
+		"prefix": "hasO",
+		"body": [
+			"${1:Object}.hasOwnProperty(${0:prop})",
+		],
+		"description": "hasOwnProperty"
+	},
+
+	"expect": {
+		"scope": "javascript, javascriptreact",
+		"prefix": "expect, exp",
+		"body": [
+			"expect(${1:Object}).toEqual(${0:prop})",
+		],
+		"description": "hasOwnProperty"
+	},
+
+	"arrow": {
+		"scope": "javascript, javascriptreact",
+		"prefix": "arr, =>",
+		"body": [
+			"(${0:arg}) => {", "  ${0:body}", "};",
+		],
+		"description": "Arrow Function"
+	},
+
+	"JS Class": {
+		"scope": "javascript, javascriptreact",
+		"prefix": "class",
+		"body": [
+			"class ${1:name} {",
+			"   constructor(${2:var1}) {",
+			"      this.${2:var1} = ${2:var1}",
+			"   }",
+			"  ",
+			"   ${0:func1}() {",
+			"     ",
+			"   }",
+			"}"
+		],
+		"description": "JS Class"
+	}
 }

@@ -10,7 +10,7 @@ import {
 	markerList,
 	exceptionEventsData
 }
-from "../../../dataStore/map-data";
+	from "../../../dataStore/map-data";
 
 import {
 	insertIntoOrderedArray,
@@ -18,13 +18,13 @@ import {
 	calculateHeadingAngle,
 	calculateAnimatedAngleDelta
 }
-from "../../../utils/helper";
+	from "../../../utils/helper";
 
 import {
 	getRealLatLng,
 	getInterpolatedLatLng
 }
-from "../utils/device-data-helpers";
+	from "../utils/device-data-helpers";
 
 import { calculateDateTimeIndex, createMapMarker } from "./marker-helper";
 
@@ -145,6 +145,8 @@ export const deviceMarkerModel = {
 		if (this.livePath) {
 			this.livePath.timeChangedUpdate(this.currentlatLng, this.currentExceptions);
 		}
+
+		this.popupModel.updatePopup();
 	},
 
 	updateDeviceMarker(currentSecond) {
