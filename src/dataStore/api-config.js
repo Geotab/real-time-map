@@ -1,19 +1,21 @@
-import { LOGRECORD, EXCEPTIONEVENT } from '../constants/feed-type-names';
+import { LOGRECORD, EXCEPTIONEVENT } from "../constants/feed-type-names";
 
 export const apiConfig = {
-  api: undefined,
-  feedTypesToGet: [LOGRECORD, EXCEPTIONEVENT],
-  resultsLimit: 60000,
+   api: undefined,
+   feedTypesToGet: [LOGRECORD, EXCEPTIONEVENT],
+   resultsLimit: 60000,
 };
 
 export const userInfo = {
-  userName: "",
-  database: "",
-  sessionId: "",
+   userName: "",
+   database: "",
+   sessionId: "",
+   server: "",
 
-  setUserInfo: (user, db, session) => {
-    userInfo.userName = user;
-    userInfo.database = db;
-    userInfo.sessionId = session;
-  }
+   setUserInfo: (user, db, session, server) => {
+      userInfo.userName = user;
+      userInfo.database = db;
+      userInfo.sessionId = session;
+      userInfo.server = server;
+   }
 };
