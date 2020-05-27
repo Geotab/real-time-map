@@ -14,47 +14,50 @@ import { mapModel } from "../src/components/map/map-model";
 import storage from "./dataStore";
 import { initView } from "./index";
 import {
-  apiConfig,
-  userInfo
+   apiConfig,
+   userInfo
 } from "./dataStore/api-config";
 import {
-  resetAnimationOnFocus,
-  resetTransitionAnimation
+   resetAnimationOnFocus,
+   resetTransitionAnimation
 }
-  from "./utils/helper";
+   from "./utils/helper";
 
 export function initBeforeLogin() {
-  initDateKeeper();
+   initDateKeeper();
 }
 
-export function loginToSession(api) {
-  apiConfig.api = api;
-  return new Promise(resolve => {
-    apiConfig.api.getSession(session => {
-      userInfo.setUserInfo(session.userName, session.database, session.sessionId);
-      resolve();
-    });
-  });
+export function loginToSession(api, state) {
+   apiConfig.api = api;
+   apiConfig.state = state;
+   return new Promise(resolve => {
+      apiConfig.api.getSession((session, server) => {
+         userInfo.setUserInfo(session.userName, session.database, session.sessionId, server);
+         resolve();
+      });
+   });
 };
 
 export function initAfterLogin() {
-  storage.dateKeeper$.resume();
-  initView();
-  layerModel.initLayers();
-  mapModel.locateUserAndSetView();
-  resetAnimationOnFocus();
+   storage.dateKeeper$.resume();
+   initView();
+   layerModel.initLayers();
+   mapModel.locateUserAndSetView();
+   resetAnimationOnFocus();
 
-  initRealTimeFeedRunner();
-  initHistoricalFeedRunner();
+   initRealTimeFeedRunner();
+   initHistoricalFeedRunner();
 }
 
 export function handleBlur() {
-  storage.dateKeeper$.pause();
-  console.log("Blurred!");
+   storage.dateKeeper$.pause();
+   console.log("Blurred!");
 }
 
-export function handleFocus() {
-  storage.dateKeeper$.resume();
-  resetTransitionAnimation();
-  console.log("Focused!");
+export function handleFocus(api, state) {
+   apiConfig.api = api;
+   apiConfig.state = state;
+   storage.dateKeeper$.resume();
+   resetTransitionAnimation();
+   console.log("Focused!");
 }
