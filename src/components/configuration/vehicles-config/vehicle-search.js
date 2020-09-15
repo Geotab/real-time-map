@@ -46,7 +46,12 @@ export const deviceSearch = {
       return makeAPIMultiCall(nameSearchMultiCall).then(results => {
          // deviceList = results[0];
          results[0]
-            .map(deviceSearch.saveDeviceDataToCache);
+            .map(devObj => {
+               // Exclude historical devices
+               if (devObj.serialNumber !== "000-000-0000") {
+                  deviceSearch.saveDeviceDataToCache(devObj);
+               }
+            });
          // groupList = results[1];
          results[1]
             .map(deviceSearch.saveGroupDataToCache);
